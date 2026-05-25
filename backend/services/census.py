@@ -57,21 +57,25 @@ def _strip_accents(s: str) -> str:
     return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode("ascii").upper()
 
 
-@lru_cache(maxsize=1)
+_COMUNA_MAP_CACHE: dict[str, str] = {}
+
 def _build_comuna_map() -> dict[str, str]:
     """Maps normalized (accent-stripped) commune name → actual name stored in parquet."""
+    global _COMUNA_MAP_CACHE
+    if _COMUNA_MAP_CACHE:
+        return _COMUNA_MAP_CACHE
     _ensure_census()
     if not PARQUET_PATH.exists():
         return {}
     df = pd.read_parquet(PARQUET_PATH, columns=["COMUNA"])
-    return {_strip_accents(name): name for name in df["COMUNA"].dropna().unique()}
+    _COMUNA_MAP_CACHE = {_strip_accents(name): name for name in df["COMUNA"].dropna().unique()}
+    return _COMUNA_MAP_CACHE
 
 
 def _resolve_comuna(comuna: str) -> str | None:
     return _build_comuna_map().get(_strip_accents(comuna.strip()))
 
 
-@lru_cache(maxsize=1)
 def _load_parquet() -> pd.DataFrame:
     _ensure_census()
     if not PARQUET_PATH.exists():
