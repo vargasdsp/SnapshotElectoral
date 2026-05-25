@@ -4,8 +4,12 @@ from functools import lru_cache
 from pathlib import Path
 import unicodedata
 import pandas as pd
+from .query import _ensure_remote
 
 PARQUET_PATH = Path(__file__).parent.parent.parent / "manzanas_nacional.parquet"
+
+def _ensure_census() -> bool:
+    return _ensure_remote(PARQUET_PATH, "manzanas_nacional.parquet")
 
 # Columns allowed for per-manzana map visualization
 VALID_MAP_COLS: set[str] = {
@@ -56,6 +60,9 @@ def _strip_accents(s: str) -> str:
 @lru_cache(maxsize=1)
 def _build_comuna_map() -> dict[str, str]:
     """Maps normalized (accent-stripped) commune name → actual name stored in parquet."""
+    _ensure_census()
+    if not PARQUET_PATH.exists():
+        return {}
     df = pd.read_parquet(PARQUET_PATH, columns=["COMUNA"])
     return {_strip_accents(name): name for name in df["COMUNA"].dropna().unique()}
 
@@ -66,6 +73,9 @@ def _resolve_comuna(comuna: str) -> str | None:
 
 @lru_cache(maxsize=1)
 def _load_parquet() -> pd.DataFrame:
+    _ensure_census()
+    if not PARQUET_PATH.exists():
+        return pd.DataFrame()
     return pd.read_parquet(PARQUET_PATH, columns=CENSUS_COLS)
 
 
@@ -80,6 +90,9 @@ def get_census_manzanas(comuna: str, variable: str) -> dict[str, float] | None:
         return None
     cols = ["MANZENT", "COMUNA", variable]
     try:
+        _ensure_census()
+        if not PARQUET_PATH.exists():
+            return None
         df = pd.read_parquet(PARQUET_PATH, columns=cols)
     except Exception:
         return None
