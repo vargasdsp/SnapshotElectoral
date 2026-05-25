@@ -1,0 +1,346 @@
+ID,Región,Pacto,Comuna,Nombre,¿Nuevo o Reelecto?,BANCADA AchM,Militancia,CUPO,Antigua Militancia (si es IND)
+1,Región de Arica y Parinacota,Contigo Chile Mejor,Camarones,Cristián Zavala S.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+1,Región de Arica y Parinacota,Republicanos,General Lagos,Alex Castillo B.,REELECTO,PARTIDO REPUBLICANO,PARTIDO REPUBLICANO DE CHILE,,
+1,Región de Arica y Parinacota,Chile Vamos,Putre,Javier Tito H.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,DEMOCRATAS,
+1,Región de Arica y Parinacota,Fuera de Pacto,Arica,Orlando Vargas P.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+2,Región de Tarapacá,Fuera de Pacto,Camiña,Evelyn Mamani V.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+2,Región de Tarapacá,Contigo Chile Mejor,Alto Hospicio,Patricio Ferreira R.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+2,Región de Tarapacá,Contigo Chile Mejor,Iquique,Mauricio Soria M,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+2,Región de Tarapacá,Chile Vamos,Pica,Iván Infante C.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+2,Región de Tarapacá,Contigo Chile Mejor,Pozo Almonte,Richard Godoy A.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+3,Región de Antofagasta,Contigo Chile Mejor,Mejillones,Marcelino Carvajal F.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+3,Región de Antofagasta,Contigo Chile Mejor,San Pedro de Atacama,Justo Zuleta S,REELECTO,FEDERACIÓN REGIONALISTA VERDE SOCIAL,INDEPENDIENTES-CChM,FRVS,
+3,Región de Antofagasta,Chile Vamos,Antofagasta,Sacha Razmilic B.,NUEVO,EVOPOLI,EVOLUCION POLITICA,,
+3,Región de Antofagasta,Contigo Chile Mejor,Calama,Eliecer Chamorro V.,REELECTO,FEDERACIÓN REGIONALISTA VERDE SOCIAL,FEDERACION REGIONALISTA VERDE SOCIAL,,
+3,Región de Antofagasta,Fuera de Pacto,María Elena,Viviana Cuello R.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+3,Región de Tarapacá,Fuera de Pacto,Colchane,Teófilo Mamani G.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+3,Región de Tarapacá,Chile Vamos,Huara,José Bartolo V.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+3,Región de Antofagasta,Fuera de Pacto,Ollague,Jhean Ramírez D.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+3,Región de Antofagasta,Fuera de Pacto,Sierra Gorda,Adriana Rivera V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+3,Región de Antofagasta,Fuera de Pacto,Taltal,Mario Acuña V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+3,Región de Antofagasta,Fuera de Pacto,Tocopilla,Ljubica Kurtovic C.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+4,Región de Atacama,Contigo Chile Mejor,Alto del Carmen,Cristián Olivares I.,REELECTO,PARTIDO RADICAL,PARTIDO RADICAL DE CHILE,,
+4,Región de Atacama,Chile Vamos,Diego de Almagro,Mario Araya R.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+4,Región de Atacama,Contigo Chile Mejor,Huasco,Genaro Briceño T.,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+4,Región de Atacama,Fuera de Pacto,Copiapó,Maglio Cicardini N.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+4,Región de Atacama,Fuera de Pacto,Freirina,Fernando Ruhl P.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+4,Región de Atacama,Fuera de Pacto,Tierra Amarilla,Cristóbal Zúñiga A.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PC
+4,Región de Atacama,Fuera de Pacto,Vallenar,Víctor Isla L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,FRENTE REGIONAL
+4,Región de Coquimbo,Contigo Chile Mejor,Río Hurtado,Carmen Olivares D,REELECTO,#N/A,INDEPENDIENTE-CChM,PS,
+5,Región de Coquimbo,Fuera de Pacto,Canela,Waldo Contreras C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+5,Región de Coquimbo,Contigo Chile Mejor,Andacollo,Juan Alfaro A.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+5,Región de Coquimbo,Contigo Chile Mejor,Coquimbo,Ali Manouchehri M.,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+5,Región de Coquimbo,Contigo Chile Mejor,Illapel,Denís Cortés A.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+5,Región de Coquimbo,Contigo Chile Mejor,La Higuera,Uberlinda Aquea B.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+5,Región de Valparaíso,Chile Vamos,Algarrobo,Marco González C.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+5,Región de Coquimbo,Chile Vamos,La Serena,Daniela Norambuena B.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+5,Región de Coquimbo,Contigo Chile Mejor,Los Vilos,Christian Gross H.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+5,Región de Coquimbo,Contigo Chile Mejor,Monte Patria,Cristián Herrera P.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+5,Región de Coquimbo,Chile Vamos,Paihuano,Hernán Ahumada A.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+5,Región de Atacama,Contigo Chile Mejor,Caldera,Brunilda González A.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+5,Región de Coquimbo,Chile Vamos,Vicuña,Mario Aros C.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+5,Región de Coquimbo,Fuera de Pacto,Combarbalá,Marta Carvajal C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+5,Región de Coquimbo,Fuera de Pacto,Ovalle,Héctor Vega C.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+5,Región de Coquimbo,Fuera de Pacto,Punitaqui,Pedro Araya Z.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+5,Región de Coquimbo,Fuera de Pacto,Salamanca,Carlos Lillo A.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+5,Región de Atacama,Chile Vamos,Chañaral,Alex Ahumada M.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+6,Región de Valparaíso,Contigo Chile Mejor,Cabildo,Víctor Donoso O.,REELECTO,PARTIDO DEMOCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+6,Región de Valparaíso,Contigo Chile Mejor,Calera,Johnny Piraino M.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+6,Región de Valparaíso,Contigo Chile Mejor,Calle Larga,Dina González A.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+5,Región de Valparaíso,Fuera de Pacto,Isla de Pascua,Elizabeth Arévalo P.,NUEVO,#N/A,INDEPENDIENTE-FP,,
+6,Región de Valparaíso,Chile Vamos,Cartagena,Lidia Silva G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+6,Región de Valparaíso,Chile Vamos,Casablanca,Rodrigo Martínez R.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+6,Región de Valparaíso,Contigo Chile Mejor,Catemu,Rodrigo Díaz B.,REELECTO,PARTIDO FRENTE AMPLIO,INDEPENDIENTES-CChM,FA,
+6,Región de Valparaíso,Contigo Chile Mejor,El Tabo,Alfonso Muñoz A.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+6,Región de Valparaíso,Contigo Chile Mejor,Juan Fernández,Pablo Manríquez A.,REELECTO,PARTIDO FRENTE AMPLIO,INDEPENDIENTES-CChM,FA,
+6,Región de Valparaíso,Contigo Chile Mejor,La Cruz,Filomena Navia H.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+6,Región de Valparaíso,Chile Vamos,Limache,Luciano Valenzuela R.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Contigo Chile Mejor,Llay Llay,Edgardo González A.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+6,Región de Valparaíso,Chile Vamos,Los Andes,Manuel Rivera M.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+6,Región de Valparaíso,Chile Vamos,Nogales,Leslie Pacheco R.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+6,Región de Valparaíso,Contigo Chile Mejor,Panquehue,Gonzalo Vergara L,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+6,Región de Valparaíso,Chile Vamos,Papudo,Claudia Adasme D.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+6,Región de Valparaíso,Chile Vamos,Petorca,Gustavo Henríquez T.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Contigo Chile Mejor,Placilla,Marcelo González F.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+6,Región de Valparaíso,Chile Vamos,Puchuncaví,Marcos Morales U.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Contigo Chile Mejor,Putaendo,Mauricio Quiroz C,REELECTO,PARTIDO FRENTE AMPLIO,INDEPENDIENTES-CChM,FA,
+6,Región de Valparaíso,Chile Vamos,Quilpué,Carolina Corti B.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+6,Región de Valparaíso,Chile Vamos,Rinconada,Juan Galdames C.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Contigo Chile Mejor,San Felipe,Carmen Castillo T.,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+6,Región de Valparaíso,Contigo Chile Mejor,Santa María,Claudio Zurita I.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+6,Región de Valparaíso,Contigo Chile Mejor,Valparaíso,Camila Nieto H.,NUEVO,PARTIDO FRENTE AMPLIO,FRENTE AMPLIO,,
+5,Región de Valparaíso,Chile Vamos,Zapallar,Gustavo Alessandri B.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Chile Vamos,Villa Alemana,Nelson Estay M.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+6,Región de Valparaíso,Contigo Chile Mejor,Viña del Mar,Macarena Ripamonti S.,REELECTO,PARTIDO FRENTE AMPLIO,FRENTE AMPLIO,,
+6,Región de Valparaíso,Fuera de Pacto,Concón,Freddy Ramírez V.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+6,Región de Valparaíso,Fuera de Pacto,El Quisco,José Jofré B.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+6,Región de Valparaíso,Fuera de Pacto,Hijuelas,Verónica Rossat A.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI
+6,Región de Valparaíso,Fuera de Pacto,La Ligua,Patricio Pallares V.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+6,Región de Valparaíso,Fuera de Pacto,Olmué,Jorge Jil H.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+6,Región de Valparaíso,Fuera de Pacto,Quillota,Luis Mella G.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+6,Región de Valparaíso,Fuera de Pacto,Quintero,Rolando Silva F.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,EVO
+6,Región de Valparaíso,Fuera de Pacto,San Antonio,Omar Vera C.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+6,Región de Valparaíso,Fuera de Pacto,San Esteban,Christian Ortega V.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+6,Región de Valparaíso,Fuera de Pacto,Santo Domingo,Fernando Rodríguez L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI
+7,Región Metropolitana de Santiago,Fuera de Pacto,Cerrillos,Johnny Yáñez D.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+7,Región Metropolitana de Santiago,Fuera de Pacto,Cerro Navia,Mauro Tamayo R.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PC
+7,Región Metropolitana de Santiago,Fuera de Pacto,Conchalí,René Vega F.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+7,Región Metropolitana de Santiago,Fuera de Pacto,Curacaví,Christian Hernández V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI-RN
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Alhué,Marcela Chamorro M.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+7,Región Metropolitana de Santiago,Chile Vamos,Buin,Miguel Araya L.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+6,Región Metropolitana de Santiago,Chile Vamos,Calera,Hortensia Mora C.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Chile Vamos,Colina,Isabel Valenzuela A.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,El Bosque,Manuel Zúñiga A.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,El Monte,Zandra Maulen J.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Estación Central,Felipe Muñoz V,REELECTO,PARTIDO FRENTE AMPLIO,INDEPENDIENTES-CChM,FA,
+7,Región del Biobío,Contigo Chile Mejor,Florida,Rodrigo Montero C.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Chile Vamos,Huechuraba,Maximiliano Luksic L.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Chile Vamos,Independencia,Agustín Iglesias M.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Chile Vamos,Isla de Maipo,Juan Olave C.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,La Cisterna,Joel Olmos E.,REELECTO,ACCIÓN HUMANISTA,PARTIDO ACCIÓN HUMANISTA,,
+7,Región Metropolitana de Santiago,Chile Vamos,La Florida,Daniel Reyes M.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,La Pintana,Claudia Pizarro P.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+7,Región Metropolitana de Santiago,Chile Vamos,La Reina,José Palacios P.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Lampa,Jonathan Opazo C.,REELECTO,PARTIDO LIBERAL,INDEPENDIENTES-CChM,PL,
+7,Región Metropolitana de Santiago,Chile Vamos,Lo Barnechea,Felipe Alessandri V.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Lo Espejo,Javiera Reyes J.,REELECTO,PARTIDO COMUNISTA DE CHILE,PARTIDO COMUNISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Lo Prado,Maximiliano Ríos G.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+7,Región Metropolitana de Santiago,Republicanos,Macul,Eduardo Espinoza G.,NUEVO,PARTIDO REPUBLICANO,PARTIDO REPUBLICANO DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Maipú,Tomás Vodanovic E.,REELECTO,PARTIDO FRENTE AMPLIO,FRENTE AMPLIO,,
+7,Región Metropolitana de Santiago,Chile Vamos,María Pinto,Jessica Mualim F.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+7,Región Metropolitana de Santiago,Chile Vamos,Melipilla,Paula Gárate R.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Chile Vamos,Ñuñoa,Sebastián Sichel R.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Padre Hurtado,Felipe Muñoz H.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Chile Vamos,Paine,Rodrigo Contreras G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Pedro Aguirre Cerda,Luis Astudillo P,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+7,Región Metropolitana de Santiago,Chile Vamos,Peñaflor,Rodrigo Cornejo I.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Peñalolén,Miguel Concha M.,NUEVO,PARTIDO FRENTE AMPLIO,FRENTE AMPLIO,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Pirque,Jaime Escudero R.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+7,Región Metropolitana de Santiago,Chile Vamos,Providencia,Jaime Bellolio A.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Pudahuel,Italo Bravo L.,REELECTO,PARTIDO COMUNISTA DE CHILE,INDEPENDIENTES-CChM,PC,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Quilicura,Paulina Bobadilla N.,REELECTO,PARTIDO FRENTE AMPLIO,INDEPENDIENTES-CChM,FA,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Quinta Normal,Karina Delfino M.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Recoleta,Fares Jadue L.,NUEVO,PARTIDO COMUNISTA DE CHILE,PARTIDO COMUNISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,San Bernardo,Christopher White B.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,San José de Maipo,Roberto Pérez C.,NUEVO,PARTIDO RADICAL,PARTIDO RADICAL DE CHILE,,
+7,Región Metropolitana de Santiago,Chile Vamos,San Miguel,Carol Bown S.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+7,Región Metropolitana de Santiago,Chile Vamos,San Pedro de Melipilla,Manuel Devia V.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,San Ramón,Gustavo Toro Q.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+7,Región Metropolitana de Santiago,Chile Vamos,Santiago,Mario Desbordes J.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+7,Región Metropolitana de Santiago,Contigo Chile Mejor,Talagante,Sebastián Rosas G.,NUEVO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+7,Región Metropolitana de Santiago,Republicanos,Tiltil,César Mena R.,NUEVO,PARTIDO REPUBLICANO,INDEPENDIENTES-REP,,
+7,Región Metropolitana de Santiago,Chile Vamos,Vitacura,Camila Merino C.,REELECTO,EVOPOLI,EVOLUCION POLITICA,,
+7,Región Metropolitana de Santiago,Fuera de Pacto,La Granja,Claudio Arriagada M.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+7,Región Metropolitana de Santiago,Fuera de Pacto,Las Condes,Catalina Martín C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,EVO
+7,Región Metropolitana de Santiago,Fuera de Pacto,Puente Alto,Matías Toledo H.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IGUALDAD
+7,Región Metropolitana de Santiago,Fuera de Pacto,Renca,Claudio Castro S.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+7,Región Metropolitana de Santiago,Fuera de Pacto,San Joaquín,Cristóbal Labra B.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Codegua,José Flores O.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Coinco,Juan Abarca P.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Doñihue,Boris Acuña G.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Graneros,Marcelo Miñañir M.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Chépica,Fabián Soto G.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Chimbarongo,Marco Contreras J.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Coltauco,Félix Sánchez V.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,La Estrella,Valentín Vidal R.,NUEVO,PARTIDO RADICAL,INDEPENDIENTES-CChM,PR,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Las Cabras,Juan Flores A.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+7,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Litueche,Rodrigo Palominos V.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Malloa,Luis Barra V.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Marchigüe,Sebastián Flores L.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Navidad,Yanko Blumen A,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Olivar,María Montero C.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Paredones,Moisés Carvacho V.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Peralillo,Claudio Cumsille C.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Peumo,Fermín Carreño C.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Pumanque,Gonzalo Baraona B.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Quinta de Tilcoco,Sebastián Rodríguez F.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Rancagua,Raimundo Agliati M.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Rengo,Enrique Barrio H.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Contigo Chile Mejor,Requinoa,Waldo Valdivia M.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,San Fernando,Pablo Silva P.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,San Vicente de Tagua Tagua,Guido Carreño R.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+8,Región del Libertador General Bernardo O'Higgins,Chile Vamos,Santa Cruz,Yamil Ethit R.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Lolol,José Román C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Machalí,Juan Abud P.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Nancagua,Aníbal Valenzuela C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Palmilla,Carlos Carrero P.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Pichidegua,Adolfo Cerón G.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,Pichilemu,Roberto Córdova C.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+8,Región del Libertador General Bernardo O'Higgins,Fuera de Pacto,San Francisco de Mostazal,Verónica Arroyo A.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+9,Región del Maule,Fuera de Pacto,Colbún,Pedro Muñoz O.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+9,Región del Maule,Chile Vamos,Curepto,Fernando Alcántara B.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,RN
+9,Región del Maule,Fuera de Pacto,Empedrado,Carlos Correa M.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+9,Región del Maule,Fuera de Pacto,Licantén,Claudio Reyes F.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+9,Región del Maule,Fuera de Pacto,Molina,Felipe Méndez G.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+9,Región del Maule,Chile Vamos,Cauquenes,Jorge Muñoz S.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+9,Región del Maule,Contigo Chile Mejor,Chanco,Marcelo Waddington G.,REELECTO,PARTIDO RADICAL,PARTIDO RADICAL DE CHILE,,
+9,Región del Maule,Chile Vamos,Constitución,Carlos Valenzuela G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+9,Región del Maule,Fuera de Pacto,Curarrehue,Daniel Parra C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+9,Región del Maule,Contigo Chile Mejor,Hualañé,Carolina Muñoz N.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+9,Región del Maule,Chile Vamos,Linares,Mario Meza V.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+9,Región del Maule,Contigo Chile Mejor,Longaví,Jaime Briones J.,NUEVO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+9,Región del Maule,Contigo Chile Mejor,Maule,Pablo Luna A.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+9,Región del Maule,Republicanos,Parral,Patricio Ojeda A.,NUEVO,#N/A,INDEPENDIENTES-REP,,
+8,Región del Maule,Contigo Chile Mejor,Pelluhue,María Reyes O.,REELECTO,#N/A,INDEPENDIENTE-CChM,DC,
+9,Región del Maule,Contigo Chile Mejor,Pencahue,José Tobar A.,REELECTO,PARTIDO RADICAL,INDEPENDIENTES-CChM,PR,
+9,Región del Maule,Contigo Chile Mejor,Rauco,Claudia Medina H,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+9,Región del Maule,Chile Vamos,Retiro,Rafael Ramírez P.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+9,Región del Maule,Chile Vamos,Río Claro,Américo Guajardo O.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+9,Región del Maule,Chile Vamos,Romeral,José Arellano L.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+8,Región del Maule,Chile Vamos,Sagrada Familia,Osvaldo Jorquera P.,NUEVO,#N/A,UNION DEMOCRATA INDEPENDIENTE,,
+9,Región del Maule,Contigo Chile Mejor,San Javier,Jorge Silva S.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+8,Región del Maule,Chile Vamos,Talca,Juan Díaz A.,REELECTO,#N/A,RENOVACION NACIONAL,,
+9,Región del Maule,Chile Vamos,Vichuquén,Patricio Rivera B.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+9,Región del Maule,Chile Vamos,Yerbas Buenas,Jonathan Norambuena B.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+9,Región del Maule,Fuera de Pacto,Pelarco,Boris Cabrera L.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTE-FP,,PPD
+9,Región del Maule,Fuera de Pacto,Portezuelo,Juan Ramírez S.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+9,Región del Maule,Fuera de Pacto,San Clemente,Juan Rojas V.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+9,Región del Maule,Fuera de Pacto,Teno,Wildo Farías G.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRO
+9,Región del Maule,Fuera de Pacto,Villa Alegre,Arturo Palma V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+10,Región de Ñuble,Fuera de Pacto,Chillán Viejo,Jorge Pozo P.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+10,Región de Ñuble,Fuera de Pacto,Cobquecura,Jorge Romero V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+10,Región de Ñuble,Fuera de Pacto,Coihueco,Wilson Palma J.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+10,Región de Ñuble,Contigo Chile Mejor,Ñiquén,Mauricio Catoni,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,UDI
+10,Región de Ñuble,Chile Vamos,Bulnes,Gonzalo Bustamante T.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+10,Región de Ñuble,Contigo Chile Mejor,Chillán,Camilo Benavente J.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+10,Región de Ñuble,Contigo Chile Mejor,Coelemu,Alejandro Pedreros U.,REELECTO,PARTIDO RADICAL,INDEPENDIENTES-CChM,PR,
+10,Región de Ñuble,Chile Vamos,El Carmen,Renan Cabezas A.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+10,Región de Ñuble,Contigo Chile Mejor,Ninhue,Luis Molina M.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+9,Región de Ñuble,Chile Vamos,Pemuco,Johnnson Guiñez N.,REELECTO,#N/A,INDEPENDIENTES-CHV,RN,
+9,Región de Ñuble,Republicanos,Pinto,Jairo Pino L.,NUEVO,#N/A,INDEPENDIENTES-REP,,
+10,Región de Ñuble,Chile Vamos,Quirihue,Eduardo Redlich M.,NUEVO,EVOPOLI,INDEPENDIENTES-CHV,EVO,
+10,Región de Ñuble,Chile Vamos,Ránquil,Nicolás Torres O.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+9,Región de Ñuble,Fuera de Pacto,San Fabián,Cristofer Valdés G.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI-RN
+10,Región de Ñuble,Contigo Chile Mejor,Yungay,Rafael Cifuentes R.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+10,Región de Ñuble,Fuera de Pacto,Quillón,Felipe Catalan V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+10,Región de Ñuble,Fuera de Pacto,San Carlos,Rubén Méndez V.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+10,Región de Ñuble,Fuera de Pacto,San Nicolás,Víctor Toro L.,NUEVO-RETORNO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTE-FP,,DC
+10,Región de Ñuble,Fuera de Pacto,San Rafael,Basilio Pérez D.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PR
+10,Región de Ñuble,Fuera de Pacto,Trehuaco,Jorge Morales S.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Antuco,Sandra Bobadilla C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Cabrero,Yusef Sabag A.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Chiguayante,Jorge Lozano Z.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Hualqui,Ricardo Fuentes P.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Penco,Rodrigo Vera R.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRSD
+11,Región del Biobío,Contigo Chile Mejor,Alto Biobío,Félix Vita M.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+11,Región del Biobío,Chile Vamos,Arauco,Mauricio Alarcón G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+10,Región del Biobío,Chile Vamos,Cañete,Jorge Radonich B.,REELECTO,#N/A,RENOVACION NACIONAL,,
+11,Región del Biobío,Partido Social Cristiano,Concepción,Héctor Muñoz U.,NUEVO,PARTIDO SOCIAL CRISTIANO,Partido Social Cristiano,,
+10,Región del Biobío,Fuera de Pacto,Contulmo,Carlos Leal N.,REELECTO,#N/A,INDEPENDIENTE-FP,,
+11,Región del Biobío,Contigo Chile Mejor,Coronel,Boris Chamorro R.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+11,Región del Biobío,Chile Vamos,Curanilahue,Luis Gengnagel G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+11,Región del Biobío,Contigo Chile Mejor,Hualpén,Miguel Rivera M.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+10,Región del Biobío,Chile Vamos,Laja,Vladimir Fica T.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región del Biobío,Chile Vamos,Lebu,Marcela Tiznado F.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+11,Región del Biobío,Chile Vamos,Los Álamos,Pablo Vegas V.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+11,Región del Biobío,Contigo Chile Mejor,Los Angeles,José Pérez A.,NUEVO,PARTIDO RADICAL,PARTIDO RADICAL DE CHILE,,
+11,Región del Biobío,Chile Vamos,Lota,Jaime Vásquez C.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+11,Región del Biobío,Republicanos,Mulchén,José Muñoz S.,NUEVO,PARTIDO REPUBLICANO,PARTIDO REPUBLICANO DE CHILE,,
+11,Región del Biobío,Chile Vamos,Nacimiento,Carlos Toloza S.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+11,Región del Biobío,Contigo Chile Mejor,Negrete,Alfredo Peña P.,REELECTO,PARTIDO RADICAL,PARTIDO RADICAL DE CHILE,,
+11,Región del Biobío,Contigo Chile Mejor,O'Higgins,Claudio Fica G.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+11,Región del Biobío,Contigo Chile Mejor,Quilaco,Pablo Urrutia M,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,INDEPENDIENTES-CChM,DC,
+11,Región del Biobío,Contigo Chile Mejor,Quilleco,Claudio Solar J.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+11,Región del Biobío,Chile Vamos,San Ignacio,Patricio Suazo R.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región del Biobío,Chile Vamos,San Pedro de la Paz,Juan Spoerer B.,NUEVO,EVOPOLI,EVOLUCION POLITICA,,
+11,Región del Biobío,Chile Vamos,Santa Bárbara,Cristián Oses A.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región del Biobío,Contigo Chile Mejor,Talcahuano,Eduardo Saavedra B.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+11,Región del Biobío,Contigo Chile Mejor,Tirúa,José Linco G.,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+11,Región del Biobío,Chile Vamos,Tucapel,Jaime Veloso J.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región del Biobío,Fuera de Pacto,San Rosendo,Rabindranath Acuña O.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PS
+11,Región del Biobío,Fuera de Pacto,Santa Juana,Ángel Castro M.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+11,Región del Biobío,Fuera de Pacto,Tomé,Italo Cáceres L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+11,Región del Biobío,Fuera de Pacto,Yumbel,José Sáez V.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+12,Región de La Araucanía,Fuera de Pacto,Carahue,Helmuth Martínez L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+12,Región de La Araucanía,Fuera de Pacto,Cunco,Cristián Moraga L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+12,Región de La Araucanía,Fuera de Pacto,Curacautín,Hugo Vidal M.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+12,Región de La Araucanía,Fuera de Pacto,Curicó,George Bordachar,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTE-FP,,RN
+12,Región de La Araucanía,Fuera de Pacto,Ercilla,Luis Orellana R.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+12,Región de La Araucanía,Fuera de Pacto,Freire,José Colihuil B.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+12,Región de La Araucanía,Fuera de Pacto,Los Sauces,Víctor González R.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI
+12,Región de La Araucanía,Fuera de Pacto,Padre Las Casas,Mario González R.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PRI
+12,Región de La Araucanía,Fuera de Pacto,Puerto Saavedra,Ricardo Tripainao C.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+12,Región de La Araucanía,Chile Vamos,Angol,Enrique Neira N.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+12,Región de La Araucanía,Chile Vamos,Cholchol,Álvaro Labraña O.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+12,Región de La Araucanía,Chile Vamos,Collipulli,Manuel Macaya R.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+12,Región de La Araucanía,Chile Vamos,Galvarino,Hans González E.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región de La Araucanía,Contigo Chile Mejor,Gorbea,Andrés Romero M.,REELECTO,#N/A,PARTIDO DEMOCRATA CRISTIANO,,
+12,Región de La Araucanía,Chile Vamos,Lautaro,Ricardo Jaramillo G.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+12,Región de La Araucanía,Contigo Chile Mejor,Loncoche,Alexis Pineda R.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+12,Región de La Araucanía,Chile Vamos,Lonquimay,Eduardo Yáñez R.,NUEVO,EVOPOLI,INDEPENDIENTES-CHV,EVO,
+12,Región de La Araucanía,Chile Vamos,Lumaco,Richard Leonelli C.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+12,Región de La Araucanía,Contigo Chile Mejor,Melipeuco,Alejandro Cuminao B.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+12,Región de La Araucanía,Contigo Chile Mejor,Nueva Imperial,César Sepúlveda H.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+12,Región de La Araucanía,Contigo Chile Mejor,Perquenco,Alejandro Sepúlveda T.,REELECTO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+12,Región de La Araucanía,Chile Vamos,Pitrufquén,Jacqueline Romero I.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+11,Región de La Araucanía,Chile Vamos,Pucón,Sebastián Álvarez R.,NUEVO,#N/A,EVOLUCION POLITICA,,
+12,Región de La Araucanía,Chile Vamos,Purén,Frann Barbieri F.,NUEVO,EVOPOLI,EVOLUCION POLITICA,,
+12,Región de La Araucanía,Chile Vamos,Renaico,Claudio Musre C.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+12,Región de La Araucanía,Contigo Chile Mejor,Temuco,Roberto Neira A.,REELECTO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+12,Región de La Araucanía,Chile Vamos,Teodoro Schmidt,Baldomero Santos V.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+11,Región de La Araucanía,Chile Vamos,Toltén,Guillermo Martínez S.,REELECTO,#N/A,UNION DEMOCRATA INDEPENDIENTE,,
+12,Región de La Araucanía,Chile Vamos,Traiguén,Luis Álvarez V.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+12,Región de La Araucanía,Chile Vamos,Vilcún,Katherinne Migueles M.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+12,Región de La Araucanía,Fuera de Pacto,Victoria,Javier Jaramillo S.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,PPD
+12,Región de La Araucanía,Fuera de Pacto,Villarrica,Pablo Astete M.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+13,Región de Los Ríos,Fuera de Pacto,La Unión,Saturnino Quezada S.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+13,Región de Los Ríos,Fuera de Pacto,Máfil,Andrés Lara M.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+12,Región de Los Ríos,Chile Vamos,Corral,Claudio González N.,NUEVO,#N/A,RENOVACION NACIONAL,,
+12,Región de Los Ríos,Contigo Chile Mejor,Futrono,Fernando Flandez M.,NUEVO,#N/A,PARTIDO POR LA DEMOCRACIA,,
+13,Región de Los Ríos,Chile Vamos,Lago Ranco,Miguel Meza S.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+13,Región de Los Ríos,Contigo Chile Mejor,Lanco,Juan Rocha A.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+13,Región de Los Ríos,Chile Vamos,Los Lagos,Víctor Fritz A.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+13,Región de Los Ríos,Chile Vamos,Mariquina,Guillermo Mitre G.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+13,Región de Los Ríos,Contigo Chile Mejor,Paillaco,Cristián Navarrete Q.,NUEVO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+13,Región de Los Ríos,Contigo Chile Mejor,Panguipulli,Rodrigo Valdivia O.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+13,Región de Los Ríos,Chile Vamos,Río Bueno,Luis Reyes A.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+13,Región de Los Ríos,Contigo Chile Mejor,Valdivia,Carla Amtmann F.,REELECTO,PARTIDO FRENTE AMPLIO,FRENTE AMPLIO,,
+14,Región de Los Lagos,Fuera de Pacto,Ancud,Andrés Ojeda C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+14,Región de Los Lagos,Fuera de Pacto,Calbuco,Marco Silva M.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,DC
+14,Región de Los Lagos,Fuera de Pacto,Futaleufú,Fernando Grandon D.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+14,Región de Los Lagos,Fuera de Pacto,Hualaihué,Cristina Espinoza O.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+14,Región de Los Lagos,Fuera de Pacto,Osorno,Jaime Bertin V.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,RN
+14,Región de Los Lagos,Fuera de Pacto,Puerto Varas,Tomás Gárate S.,REELECTO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+14,Región de Los Lagos,Fuera de Pacto,Quellón,Claudio Barudy L.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+14,Región de Los Lagos,Contigo Chile Mejor,Castro,Baltazar Elgueta C.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+14,Región de Los Lagos,Chile Vamos,Chaitén,Clara Lazcano F.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+14,Región de Los Lagos,Chile Vamos,Chonchi,Fernando Oyarzún M.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+13,Región de Los Lagos,Fuera de Pacto,Cochamó,Francisco Donoso O.,NUEVO,#N/A,INDEPENDIENTE-FP,,
+14,Región de Los Lagos,Contigo Chile Mejor,Curaco de Vélez,Javiera Yáñez R.,REELECTO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+13,Región de Los Lagos,Chile Vamos,Dalcahue,Alejandra Villegas H.,NUEVO,#N/A,INDEPENDIENTES-CHV,UDI,
+14,Región de Los Lagos,Contigo Chile Mejor,Fresia,Miguel Cárdenas B.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+14,Región de Los Lagos,Chile Vamos,Frutillar,Javier Arismendi V.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+14,Región de Los Lagos,Contigo Chile Mejor,Llanquihue,Víctor Angulo M.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+14,Región de Los Lagos,Chile Vamos,Los Muermos,Emilio González B.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+14,Región de Los Lagos,Chile Vamos,Maullín,Nabih Soza C.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+14,Región de Los Lagos,Chile Vamos,Palena,Julio Delgado R.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+14,Región de Los Lagos,Chile Vamos,Puerto Montt,Rodrigo Wainraihgt G.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+14,Región de Los Lagos,Chile Vamos,Puerto Octay,María Ojeda B.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+14,Región de Los Lagos,Republicanos,Puqueldón,Alejandro Cárdenas Q.,NUEVO,PARTIDO REPUBLICANO,INDEPENDIENTES-REP,,
+14,Región de Los Lagos,Republicanos,Purranque,Alicia Villar V.,NUEVO,PARTIDO REPUBLICANO,INDEPENDIENTES-REP,,
+14,Región de Los Lagos,Chile Vamos,Puyehue,Jimena Núñez M.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+14,Región de Los Lagos,Contigo Chile Mejor,Queilén,Marcos Vargas O.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+13,Región de Los Lagos,Contigo Chile Mejor,Quemchi,Javier Ugarte M.,NUEVO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+14,Región de Los Lagos,Contigo Chile Mejor,Quinchao,René Garcés A.,NUEVO,PARTIDO SOCIALISTA DE CHILE,INDEPENDIENTES-CChM,PS,
+14,Región de Los Lagos,Chile Vamos,Río Negro,Sebastián Cruzat C.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+14,Región de Los Lagos,Contigo Chile Mejor,San Juan de la Costa,José Muñoz U.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+14,Región de Los Lagos,Contigo Chile Mejor,San Pablo,Marco Carrillo B.,NUEVO,PARTIDO POR LA DEMOCRACIA,PARTIDO POR LA DEMOCRACIA,,
+15,Región de Aysén del General Carlos Ibáñez del Campo,Fuera de Pacto,Tortel,Marisela Jiménez C.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,IND
+15,Región de Aysén del General Carlos Ibáñez del Campo,Chile Vamos,Aysén,Luis Martínez G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+14,Región de Aysén del General Carlos Ibáñez del Campo,Fuera de Pacto,Chile Chico,Ariel Keim H.,NUEVO,#N/A,INDEPENDIENTE-FP,,IND
+15,Región de Aysén del General Carlos Ibáñez del Campo,Chile Vamos,Cisnes,Francisco Roncagliolo L.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+15,Región de Aysén del General Carlos Ibáñez del Campo,Chile Vamos,Cochrane,Patricio Ulloa G.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+15,Región de Aysén del General Carlos Ibáñez del Campo,Contigo Chile Mejor,Coyhaique,Carlos Gatica V.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+15,Región de Aysén del General Carlos Ibáñez del Campo,Chile Vamos,Guaitecas,Bans Puinao C.,NUEVO,EVOPOLI,EVOLUCION POLITICA,,
+14,Región de Aysén del General Carlos Ibáñez del Campo,Contigo Chile Mejor,Lago Verde,Valentín Vidal R.,NUEVO,PARTIDO POR LA DEMOCRACIA,INDEPENDIENTES-CChM,PPD,
+15,Región de Aysén del General Carlos Ibáñez del Campo,Chile Vamos,Río Ibáñez,Marcelo Jelvez C.,NUEVO,UNIÓN DEMÓCRATA INDEPENDIENTE,UNION DEMOCRATA INDEPENDIENTE,,
+16,Región de Magallanes y de la Antártica Chilena,Contigo Chile Mejor,Cabo de Hornos y Antártica,Patricio Fernández A.,NUEVO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+16,Región de Magallanes y de la Antártica Chilena,Contigo Chile Mejor,Laguna Blanca,Fernando Ojeda G.,REELECTO,PARTIDO SOCIALISTA DE CHILE,PARTIDO SOCIALISTA DE CHILE,,
+16,Región de Magallanes y de la Antártica Chilena,Contigo Chile Mejor,Porvenir,José Parada A,REELECTO,PARTIDO RADICAL,INDEPENDIENTES-CChM,PR,
+16,Región de Magallanes y de la Antártica Chilena,Chile Vamos,Primavera,Karina Fernández M.,NUEVO,PARTIDO RENOVACIÓN NACIONAL,INDEPENDIENTES-CHV,RN,
+16,Región de Magallanes y de la Antártica Chilena,Chile Vamos,Punta Arenas,Claudio Radonich J.,REELECTO,PARTIDO RENOVACIÓN NACIONAL,RENOVACION NACIONAL,,
+16,Región de Magallanes y de la Antártica Chilena,Contigo Chile Mejor,San Gregorio,Jeannette Andrade R.,REELECTO,PARTIDO DEMÓCRATA CRISTIANO,PARTIDO DEMOCRATA CRISTIANO,,
+16,Región de Magallanes y de la Antártica Chilena,Contigo Chile Mejor,Timaukel,Luis Barría A.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CChM,PPD,
+16,Región de Magallanes y de la Antártica Chilena,Chile Vamos,Torres del Paine,Anahí Cárdenas R.,REELECTO,UNIÓN DEMÓCRATA INDEPENDIENTE,INDEPENDIENTES-CHV,UDI,
+16,Región de Magallanes y de la Antártica Chilena,Fuera de Pacto,Natales,Ana Mayorga B.,NUEVO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI
+16,Región de Magallanes y de la Antártica Chilena,Fuera de Pacto,Río Verde,Tatiana Vásquez B.,NUEVO-RETORNO,INDEPENDIENTES FUERA DE PACTO,INDEPENDIENTE-FP,,UDI
