@@ -14,7 +14,7 @@ export default function SwingChart({ topCandidatos, sensibilidadColor, onCandida
 
   const maxVotos = Math.max(...topCandidatos.map(c => c.votos));
   const data = topCandidatos.map(c => ({
-    name: c.candidato.split(" ").slice(-1)[0], // last name only
+    name: c.candidato.split(" ").slice(0, 2).join(" "),
     fullName: c.candidato,
     partido: c.partido,
     votos: Math.round(c.votos),
