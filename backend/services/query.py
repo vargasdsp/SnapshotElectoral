@@ -4,14 +4,50 @@ All heavy computation is done at preprocessing time; this layer only reads.
 """
 from __future__ import annotations
 import json
+import os
+import threading
 import duckdb
 import numpy as np
 import pandas as pd
+import requests as _req
 from pathlib import Path
 from functools import lru_cache
 from typing import Optional
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "processed"
+
+# Hugging Face lazy download — set HF_DATASET_REPO=owner/repo in env
+_HF_REPO = os.environ.get("HF_DATASET_REPO", "")
+_HF_BASE = "https://huggingface.co/datasets"
+_dl_locks: dict[str, threading.Lock] = {}
+_dl_mu = threading.Lock()
+
+
+def _ensure_remote(path: Path, hf_relpath: str) -> bool:
+    """Download file from Hugging Face if not present locally. Thread-safe."""
+    if path.exists():
+        return True
+    if not _HF_REPO:
+        return False
+    with _dl_mu:
+        key = str(path)
+        if key not in _dl_locks:
+            _dl_locks[key] = threading.Lock()
+        lock = _dl_locks[key]
+    with lock:
+        if path.exists():
+            return True
+        url = f"{_HF_BASE}/{_HF_REPO}/resolve/main/{hf_relpath}"
+        try:
+            r = _req.get(url, timeout=120, stream=True)
+            r.raise_for_status()
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with open(path, "wb") as f:
+                for chunk in r.iter_content(chunk_size=65536):
+                    f.write(chunk)
+            return True
+        except Exception:
+            return False
 
 SENSIBILIDAD_PARTIDOS = {
     "izquierda":       ["PC", "FA", "FREVS", "PCCH",
@@ -232,6 +268,7 @@ def get_available_cargos(comuna: str) -> list[str]:
     cargos = []
     for cargo in ["concejal", "core", "alcalde", "diputado"]:
         path = DATA_DIR / "votos" / cargo / f"{comuna}.parquet"
+        _ensure_remote(path, f"votos/{cargo}/{comuna}.parquet")
         if path.exists():
             cargos.append(cargo)
     return cargos
@@ -242,6 +279,7 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
     pesos_path = DATA_DIR / "pesos" / f"{comuna}.parquet"
     geo_path   = DATA_DIR / "geojson" / f"{comuna}.geojson"
 
+    _ensure_remote(votos_path, f"votos/{cargo}/{comuna}.parquet")
     if not votos_path.exists():
         return None
 
@@ -290,6 +328,7 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
         # para el mismo sector: si izquierda no tuvo alcalde pero sí tuvo concejales,
         # esos votos son la mejor estimación territorial del sector en la comuna.
         concejal_path = DATA_DIR / "votos" / "concejal" / f"{comuna}.parquet"
+        _ensure_remote(concejal_path, f"votos/concejal/{comuna}.parquet")
         if concejal_path.exists():
             votos_conce = pd.read_parquet(concejal_path)
             conce_mask = votos_conce["partido"].str.upper().isin(partidos_upper)
@@ -416,6 +455,7 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
 
     # Historical presidential comparison (also use weighted pct)
     pres_path = DATA_DIR / "votos" / "presidencial" / f"{comuna}.parquet"
+    _ensure_remote(pres_path, f"votos/presidencial/{comuna}.parquet")
     pres_pct = None
     swing = None
     if pres_path.exists():
@@ -523,6 +563,7 @@ def get_candidatos_distrito(distrito_id: int, electos_only: bool = False) -> lis
         if c not in available:
             continue
         path = DATA_DIR / "votos" / "diputado" / f"{c}.parquet"
+        _ensure_remote(path, f"votos/diputado/{c}.parquet")
         if not path.exists():
             continue
         sub = pd.read_parquet(path)
@@ -572,6 +613,7 @@ def get_autoridad_distrito_snapshot(
     dfs = []
     for c in comunas_procesadas:
         path = DATA_DIR / "votos" / "diputado" / f"{c}.parquet"
+        _ensure_remote(path, f"votos/diputado/{c}.parquet")
         if not path.exists():
             continue
         sub = pd.read_parquet(path)
@@ -703,6 +745,7 @@ def get_candidatos(comuna: str, cargo: str, electos_only: bool = False) -> list[
     If electos_only, returns only the top N (heuristic) presumed to be elected.
     """
     votos_path = DATA_DIR / "votos" / cargo / f"{comuna}.parquet"
+    _ensure_remote(votos_path, f"votos/{cargo}/{comuna}.parquet")
     if not votos_path.exists():
         return None
     votos = pd.read_parquet(votos_path)
@@ -751,6 +794,7 @@ def infer_sensibilidad(partido: str) -> str:
 def get_autoridad_snapshot(comuna: str, cargo: str, candidato: str) -> dict | None:
     """Snapshot focused on a single elected authority's territorial performance."""
     votos_path = DATA_DIR / "votos" / cargo / f"{comuna}.parquet"
+    _ensure_remote(votos_path, f"votos/{cargo}/{comuna}.parquet")
     if not votos_path.exists():
         return None
 
@@ -959,6 +1003,7 @@ def _compute_concejal_proxy(comuna: str, sensibilidad: str) -> dict | None:
     """Return a slim summary of this sensibilidad's territorial performance in concejales,
     used as a fallback projection when this sector did not run in another cargo."""
     path = DATA_DIR / "votos" / "concejal" / f"{comuna}.parquet"
+    _ensure_remote(path, f"votos/concejal/{comuna}.parquet")
     if not path.exists():
         return None
     votos = pd.read_parquet(path)
@@ -984,6 +1029,7 @@ def _compute_concejal_proxy(comuna: str, sensibilidad: str) -> dict | None:
 
 def get_geojson(comuna: str) -> dict | None:
     geo_path = DATA_DIR / "geojson" / f"{comuna}.geojson"
+    _ensure_remote(geo_path, f"geojson/{comuna}.geojson")
     if not geo_path.exists():
         return None
     with open(geo_path, encoding="utf-8") as f:
@@ -1007,6 +1053,7 @@ def get_distrito_geojson(distrito_id: int, comuna_filter: str | None = None) -> 
         if c not in available:
             continue
         path = DATA_DIR / "geojson" / f"{c}.geojson"
+        _ensure_remote(path, f"geojson/{c}.geojson")
         if not path.exists():
             continue
         with open(path, encoding="utf-8") as f:
@@ -1043,6 +1090,7 @@ def get_distrito_snapshot(
     dfs = []
     for c in comunas_procesadas:
         path = DATA_DIR / "votos" / "diputado" / f"{c}.parquet"
+        _ensure_remote(path, f"votos/diputado/{c}.parquet")
         if not path.exists():
             continue
         sub = pd.read_parquet(path)
