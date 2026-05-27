@@ -140,26 +140,28 @@ function SnapshotContent() {
          style={{ background: "var(--bg-primary)" }}>
 
       {/* Top bar */}
-      <div className="relative z-30 flex items-center justify-between px-5 py-3 glass"
+      <div className="relative z-30 flex items-center justify-between px-3 sm:px-5 py-2 sm:py-3 gap-2 glass"
            style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
           <button onClick={() => router.push("/")}
-                  className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
-            ← Inicio
+                  className="text-gray-500 hover:text-gray-300 text-sm transition-colors flex-shrink-0"
+                  aria-label="Inicio">
+            <span className="sm:hidden text-base">←</span>
+            <span className="hidden sm:inline">← Inicio</span>
           </button>
-          <div className="w-px h-4 bg-gray-800" />
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:block w-px h-4 bg-gray-800" />
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap min-w-0">
             <div className="w-2.5 h-2.5 rounded-full" style={{ background: colorMain }} />
             {isDistrito && mode === "autoridad" && candidato ? (
               <>
-                <span className="text-white font-semibold text-sm">
+                <span className="text-white font-semibold text-xs sm:text-sm">
                   {candidato.split(" ").map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(" ")}
                 </span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">{CARGO_LABELS[cargo]}</span>
+                <span className="text-gray-400 text-xs sm:text-sm">{CARGO_LABELS[cargo]}</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">
+                <span className="text-gray-400 text-xs sm:text-sm">
                   {snapshot?.distrito || `Distrito ${distritoId}`}
                 </span>
                 {snapshot?.comunas && snapshot.comunas.length > 0 && (
@@ -197,13 +199,13 @@ function SnapshotContent() {
               </>
             ) : isDistrito ? (
               <>
-                <span className="text-white font-semibold text-sm">
+                <span className="text-white font-semibold text-xs sm:text-sm">
                   {snapshot?.distrito || `Distrito ${distritoId}`}
                 </span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">{CARGO_LABELS[cargo]}</span>
+                <span className="text-gray-400 text-xs sm:text-sm">{CARGO_LABELS[cargo]}</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-sm" style={{ color: colorMain }}>
+                <span className="text-xs sm:text-sm" style={{ color: colorMain }}>
                   {SENSIBILIDAD_LABELS[sensibilidad]}
                 </span>
                 {snapshot?.comunas && snapshot.comunas.length > 0 && (
@@ -241,25 +243,25 @@ function SnapshotContent() {
               </>
             ) : mode === "autoridad" && candidato ? (
               <>
-                <span className="text-white font-semibold text-sm">
+                <span className="text-white font-semibold text-xs sm:text-sm">
                   {candidato.split(" ").map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(" ")}
                 </span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">{CARGO_LABELS[cargo]}</span>
+                <span className="text-gray-400 text-xs sm:text-sm">{CARGO_LABELS[cargo]}</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">
+                <span className="text-gray-400 text-xs sm:text-sm">
                   {comuna.charAt(0) + comuna.slice(1).toLowerCase()}
                 </span>
               </>
             ) : (
               <>
-                <span className="text-white font-semibold text-sm">
+                <span className="text-white font-semibold text-xs sm:text-sm">
                   {comuna.charAt(0) + comuna.slice(1).toLowerCase()}
                 </span>
                 <span className="text-gray-600">·</span>
-                <span className="text-gray-400 text-sm">{CARGO_LABELS[cargo]}</span>
+                <span className="text-gray-400 text-xs sm:text-sm">{CARGO_LABELS[cargo]}</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-sm" style={{ color: colorMain }}>
+                <span className="text-xs sm:text-sm" style={{ color: colorMain }}>
                   {SENSIBILIDAD_LABELS[sensibilidad]}
                 </span>
               </>
@@ -407,33 +409,61 @@ function SnapshotContent() {
           )}
 
           {/* Map overlays — z-[1000] queda sobre los panes de Leaflet (400-800)
-              para que la leyenda no se esconda cuando se hace zoom in. */}
-          <div className="absolute bottom-6 left-4 z-[1000] pointer-events-auto">
+              para que la leyenda no se esconda cuando se hace zoom in.
+              En mobile la leyenda sube para no quedar bajo el bottom-sheet peek. */}
+          <div className="absolute bottom-[80px] left-2 sm:bottom-6 sm:left-4 z-[1000] pointer-events-auto">
             <MapLegend sensibilidad={sensibilidad} />
           </div>
 
-          {/* Sidebar toggle */}
+          {/* Sidebar toggle (desktop only) */}
           <button
             onClick={() => setSidebarOpen(o => !o)}
-            className="absolute top-4 right-4 z-[1000] glass rounded-xl w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+            className="hidden sm:flex absolute top-4 right-4 z-[1000] glass rounded-xl w-8 h-8 items-center justify-center text-gray-400 hover:text-white transition-colors"
           >
             {sidebarOpen ? "›" : "‹"}
           </button>
 
-          {/* Hover tooltip (manzana info) */}
+          {/* Hover tooltip (manzana info) — desktop only */}
           {hoveredMz && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[1000] glass rounded-xl px-4 py-2 text-center pointer-events-none animate-fade-in">
+            <div className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-[1000] glass rounded-xl px-4 py-2 text-center pointer-events-none animate-fade-in items-center">
               <span className="text-white font-bold text-lg">{hoveredMz.voto_pct.toFixed(1)}%</span>
               <span className="text-gray-400 text-sm ml-2">{SENSIBILIDAD_LABELS[sensibilidad]}</span>
-              <div className="text-gray-500 text-xs mt-0.5">{hoveredMz.local_votacion || ""}</div>
+              <div className="text-gray-500 text-xs mt-0.5 ml-2">{hoveredMz.local_votacion || ""}</div>
             </div>
           )}
         </div>
 
-        {/* Sidebar */}
-        {sidebarOpen && (
-          <div className="relative z-20 w-80 flex flex-col glass overflow-y-auto animate-slide-up"
-               style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
+        {/* Sidebar (desktop right column) + Bottom sheet (mobile) */}
+        <aside
+          className={`
+            bottom-sheet sm:relative sm:bottom-auto sm:inset-x-auto sm:z-20 sm:rounded-none sm:shadow-none sm:border-t-0
+            sm:flex sm:flex-col sm:glass sm:overflow-y-auto sm:animate-slide-up
+            ${sidebarOpen ? "sm:w-80" : "sm:hidden"}
+          `}
+          data-state={sidebarOpen ? "expanded" : "peek"}
+          style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          {/* Mobile handle — bar + summary label */}
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(o => !o)}
+            className="sm:hidden sheet-handle w-full"
+            aria-label={sidebarOpen ? "Cerrar panel" : "Abrir panel"}
+          >
+            <div className="sheet-handle-content">
+              <span className="flex items-center gap-2 text-sm font-medium text-gray-200 truncate">
+                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: colorMain }} />
+                <span className="truncate">
+                  {stats
+                    ? `${stats.voto_promedio_pct.toFixed(1)}% · ${SENSIBILIDAD_LABELS[sensibilidad]}`
+                    : "Resultados"}
+                </span>
+              </span>
+              <span className="text-gray-400 text-xs ml-2 flex-shrink-0">
+                {sidebarOpen ? "▼" : "▲"}
+              </span>
+            </div>
+          </button>
 
             {/* Sidebar tab switcher */}
             {!loading && !error && stats && (
@@ -772,8 +802,7 @@ function SnapshotContent() {
                 </div>
               </>
             )}
-          </div>
-        )}
+        </aside>
       </div>
 
       <style>{`

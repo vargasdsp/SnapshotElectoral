@@ -209,11 +209,11 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
   const accentColor = mode === "autoridad" ? "#2980B9" : "#C0392B";
 
   return (
-    <div className="relative w-screen h-screen flex flex-col items-center justify-center"
+    <div className="relative w-screen min-h-[100dvh] flex flex-col items-center justify-start pt-24 pb-10 sm:justify-center sm:pt-0 sm:pb-0"
          style={{ background: "#111114" }}>
 
       {/* Mode badge */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+      <div className="absolute top-3 sm:top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 sm:gap-3">
         <div className="px-3 py-1 rounded-full text-[10px] tracking-[0.25em] uppercase font-semibold"
              style={{
                background: mode === "autoridad" ? "rgba(41,128,185,0.15)" : "rgba(192,57,43,0.15)",
@@ -223,11 +223,11 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
           {mode === "autoridad" ? "Modo autoridad" : "Modo candidato"}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           {steps.map((s, i) => (
-            <div key={s} className="flex items-center gap-3">
+            <div key={s} className="flex items-center gap-1.5 sm:gap-3">
               <div className={`flex items-center gap-2 transition-all duration-300 ${i === step ? "opacity-100" : "opacity-30"}`}>
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white`}
+                <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-bold text-white`}
                      style={{
                        background: i <= step ? accentColor : "#28282E",
                      }}>
@@ -236,7 +236,7 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
                 <span className="text-xs text-gray-400 font-medium hidden sm:block">{s}</span>
               </div>
               {i < steps.length - 1 && (
-                <div className="w-12 h-px"
+                <div className="w-5 sm:w-12 h-px"
                      style={{ background: i < step ? accentColor : "#28282E" }} />
               )}
             </div>
@@ -245,28 +245,28 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
       </div>
 
       <button onClick={handleBack}
-              className="absolute top-8 left-8 text-gray-500 hover:text-gray-300 text-sm transition-colors flex items-center gap-2">
+              className="absolute top-3 left-3 sm:top-8 sm:left-8 text-gray-500 hover:text-gray-300 text-xs sm:text-sm transition-colors flex items-center gap-2 z-10">
         ← Volver
       </button>
 
-      <div className="w-full max-w-4xl px-6 animate-slide-up">
+      <div className="w-full max-w-4xl px-4 sm:px-6 animate-slide-up">
 
         {/* Step 0: Cargo (both modes) */}
         {step === 0 && (
           <div>
-            <p className="text-center text-xs tracking-[0.3em] text-gray-500 uppercase mb-4">Paso 1 de 3</p>
-            <h2 className="text-center text-4xl font-bold text-white mb-2">
+            <p className="text-center text-[10px] sm:text-xs tracking-[0.3em] text-gray-500 uppercase mb-3 sm:mb-4">Paso 1 de 3</p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white mb-2 leading-tight">
               {mode === "autoridad" ? "¿Qué cargo ocupas?" : "¿Para qué cargo?"}
             </h2>
-            <p className="text-center text-gray-500 mb-10">
+            <p className="text-center text-sm sm:text-base text-gray-500 mb-6 sm:mb-10 px-2">
               {mode === "autoridad"
                 ? "Selecciona el cargo en el que fuiste electo"
                 : "Selecciona el tipo de elección que quieres analizar"}
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {(Object.keys(CARGO_LABELS) as Cargo[]).map(c => (
                 <button key={c} onClick={() => selectCargo(c)}
-                        className="group p-6 rounded-2xl border text-left transition-all duration-200 hover:scale-105"
+                        className="group p-4 sm:p-6 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 hover:scale-105"
                         style={{ background: "#202026", borderColor: "rgba(255,255,255,0.08)" }}
                         onMouseEnter={e => {
                           (e.currentTarget as HTMLElement).style.borderColor = accentColor;
@@ -276,9 +276,9 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
                           (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
                           (e.currentTarget as HTMLElement).style.boxShadow = "none";
                         }}>
-                  <div className="text-3xl mb-4">{CARGO_ICONS[c]}</div>
-                  <div className="font-semibold text-white text-lg mb-1">{CARGO_LABELS[c]}</div>
-                  <div className="text-xs text-gray-500">{CARGO_DESC[c]}</div>
+                  <div className="text-2xl sm:text-3xl mb-2 sm:mb-4">{CARGO_ICONS[c]}</div>
+                  <div className="font-semibold text-white text-base sm:text-lg mb-1">{CARGO_LABELS[c]}</div>
+                  <div className="text-[11px] sm:text-xs text-gray-500 leading-snug">{CARGO_DESC[c]}</div>
                 </button>
               ))}
             </div>
@@ -288,18 +288,18 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
         {/* Step 1 (candidato): Sensibilidad */}
         {mode === "candidato" && step === 1 && (
           <div>
-            <p className="text-center text-xs tracking-[0.3em] text-gray-500 uppercase mb-4">Paso 2 de 3</p>
-            <h2 className="text-center text-4xl font-bold text-white mb-2">¿Qué sector político?</h2>
-            <p className="text-center text-gray-500 mb-10">
+            <p className="text-center text-[10px] sm:text-xs tracking-[0.3em] text-gray-500 uppercase mb-3 sm:mb-4">Paso 2 de 3</p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white mb-2 leading-tight">¿Qué sector político?</h2>
+            <p className="text-center text-sm sm:text-base text-gray-500 mb-6 sm:mb-10 px-2">
               Selecciona la sensibilidad que quieres analizar en el territorio
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {(Object.keys(SENSIBILIDAD_LABELS) as Sensibilidad[]).map(s => {
                 const { main } = SENSIBILIDAD_COLORS[s];
                 const partidos = SENSIBILIDAD_PARTIDOS_DISPLAY[s];
                 return (
                   <button key={s} onClick={() => selectSensibilidad(s)}
-                          className="group p-6 rounded-2xl border text-left transition-all duration-200 hover:scale-105 flex flex-col"
+                          className="group p-4 sm:p-6 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 hover:scale-105 flex flex-col"
                           style={{ background: "#202026", borderColor: "rgba(255,255,255,0.08)" }}
                           onMouseEnter={e => {
                             (e.currentTarget as HTMLElement).style.borderColor = main;
@@ -309,12 +309,12 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
                             (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
                             (e.currentTarget as HTMLElement).style.boxShadow = "none";
                           }}>
-                    <div className="w-4 h-4 rounded-full mb-4" style={{ background: main }} />
-                    <div className="font-semibold text-white text-xl mb-3">{SENSIBILIDAD_LABELS[s]}</div>
+                    <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full mb-3 sm:mb-4" style={{ background: main }} />
+                    <div className="font-semibold text-white text-base sm:text-xl mb-2 sm:mb-3 leading-tight">{SENSIBILIDAD_LABELS[s]}</div>
                     <div className="flex flex-wrap gap-1 mt-auto">
                       {partidos.map(p => (
                         <span key={p}
-                              className="text-[10px] px-2 py-0.5 rounded-full"
+                              className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full"
                               style={{
                                 background: `${main}1A`,
                                 color: main,
@@ -334,15 +334,15 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
         {/* Comuna/Distrito step: cascade region → (comuna | distrito) */}
         {step === comunaStepIdx && (
           <div className="max-w-3xl mx-auto">
-            <p className="text-center text-xs tracking-[0.3em] text-gray-500 uppercase mb-4">
+            <p className="text-center text-[10px] sm:text-xs tracking-[0.3em] text-gray-500 uppercase mb-3 sm:mb-4">
               Paso {comunaStepIdx + 1} de 3
             </p>
-            <h2 className="text-center text-4xl font-bold text-white mb-2">
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white mb-2 leading-tight">
               {selectedRegion
                 ? prettyRegion(selectedRegion)
                 : mode === "autoridad" ? "¿En qué región ejerces?" : "¿En qué región?"}
             </h2>
-            <p className="text-center text-gray-500 mb-8">
+            <p className="text-center text-sm sm:text-base text-gray-500 mb-5 sm:mb-8 px-2">
               {selectedRegion
                 ? (usesDistrito ? "Selecciona el distrito en el que vas a competir" : "Selecciona tu comuna")
                 : (usesDistrito
@@ -352,13 +352,13 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
 
             {/* Search input (oculto en flujo de distrito porque no tenemos search global) */}
             {!usesDistrito && (
-              <div className="relative max-w-lg mx-auto mb-4">
+              <div className="relative max-w-lg mx-auto mb-3 sm:mb-4">
                 <input
                   ref={inputRef}
                   value={query}
                   onChange={e => setQuery(e.target.value)}
                   placeholder={selectedRegion ? "Filtrar comunas..." : "Buscar comuna en todo Chile..."}
-                  className="w-full px-5 py-3 rounded-xl text-white placeholder-gray-600 text-base outline-none"
+                  className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-white placeholder-gray-600 text-sm sm:text-base outline-none"
                   style={{ background: "#202026", border: "1px solid rgba(255,255,255,0.1)" }}
                 />
                 {loading && (
@@ -402,13 +402,13 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
 
             {/* Region grid (initial state) */}
             {!selectedRegion && !query && (regionGroups.length > 0 || distritoGroups.length > 0) && (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 mt-3 sm:mt-4">
                 {(usesDistrito ? distritoGroups : regionGroups).map((g: any) => {
                   const items = usesDistrito ? g.distritos : g.comunas;
                   const itemLabel = usesDistrito ? "distrito" : "comuna";
                   return (
                     <button key={g.region} onClick={() => setSelectedRegion(g.region)}
-                            className="px-4 py-3 rounded-xl text-left transition-all duration-200 hover:scale-[1.02]"
+                            className="px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-left transition-all duration-200 hover:scale-[1.02]"
                             style={{ background: "#202026", border: "1px solid rgba(255,255,255,0.08)" }}
                             onMouseEnter={e => {
                               (e.currentTarget as HTMLElement).style.borderColor = accentColor;
@@ -416,7 +416,7 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
                             onMouseLeave={e => {
                               (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
                             }}>
-                      <div className="text-sm font-semibold text-white truncate">
+                      <div className="text-[13px] sm:text-sm font-semibold text-white leading-tight">
                         {prettyRegion(g.region)}
                       </div>
                       <div className="text-[10px] text-gray-500 mt-0.5">
@@ -515,9 +515,9 @@ export default function WizardFlow({ mode, onComplete, onBack }: Props) {
         {/* Step 2 (autoridad): Candidato selection */}
         {mode === "autoridad" && step === 2 && (
           <div className="max-w-2xl mx-auto">
-            <p className="text-center text-xs tracking-[0.3em] text-gray-500 uppercase mb-4">Paso 3 de 3</p>
-            <h2 className="text-center text-4xl font-bold text-white mb-2">¿Quién eres?</h2>
-            <p className="text-center text-gray-500 mb-6">
+            <p className="text-center text-[10px] sm:text-xs tracking-[0.3em] text-gray-500 uppercase mb-3 sm:mb-4">Paso 3 de 3</p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white mb-2 leading-tight">¿Quién eres?</h2>
+            <p className="text-center text-sm sm:text-base text-gray-500 mb-5 sm:mb-6 px-2">
               {(() => {
                 const lugar = usesDistrito
                   ? distritoNombre

@@ -114,3 +114,66 @@ html:not(.dark) .hover\:bg-white:hover      { background: rgba(0,0,0,0.06) !impo
 html:not(.dark) .border-gray-700     { border-color: rgba(0,0,0,0.15) !important; }
 html:not(.dark) .bg-gray-800         { background: rgba(0,0,0,0.08) !important; }
 html:not(.dark) .bg-gray-900         { background: #F4F4F7 !important; }
+
+/* --- Mobile UX --- */
+button, a, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* Disable hover-scale on touch devices to avoid sticky hover states */
+@media (hover: none) {
+  .hover\:scale-105:hover,
+  .hover\:scale-\[1\.02\]:hover { transform: none !important; }
+}
+
+/* Bottom sheet (mobile sidebar) — only applies under sm (640px) */
+@media (max-width: 639px) {
+  .bottom-sheet {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 40;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.25);
+    transition: height 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bottom-sheet[data-state="peek"]     { height: 64px; overflow-y: hidden; }
+  .bottom-sheet[data-state="expanded"] { height: 78dvh; }
+  .dark .bottom-sheet { background: #1A1A1F; }
+}
+
+.sheet-handle {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: inherit;
+  padding: 8px 16px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.sheet-handle::before {
+  content: "";
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 36px; height: 4px;
+  border-radius: 2px;
+  background: var(--scrollbar);
+  opacity: 0.7;
+}
+.sheet-handle-content {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding-top: 6px;
+}
+
+/* Headings: collapse desktop sizes on small screens to keep things readable */
+@media (max-width: 640px) {
+  h1 { line-height: 1.1; }
+  h2 { line-height: 1.15; }
+}
