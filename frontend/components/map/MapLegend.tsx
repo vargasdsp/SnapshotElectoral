@@ -23,18 +23,18 @@ export default function MapLegend({ sensibilidad }: Props) {
   const b = parseInt(main.slice(5, 7), 16);
 
   return (
-    <div className="glass rounded-xl p-3 min-w-[160px]">
-      <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">
+    <div className="glass rounded-lg sm:rounded-xl p-2 sm:p-3 min-w-[120px] sm:min-w-[160px]">
+      <p className="text-[10px] sm:text-xs text-gray-500 mb-1.5 sm:mb-2 font-medium uppercase tracking-wider truncate">
         {label}
       </p>
-      <div className="flex items-center gap-1 mb-2">
+      <div className="flex items-center gap-1 mb-1 sm:mb-2">
         {stops.map(s => (
           <div key={s.pct}
-               className="flex-1 h-3 rounded"
+               className="flex-1 h-2 sm:h-3 rounded"
                style={{ background: `rgba(${r},${g},${b},${s.opacity})` }} />
         ))}
       </div>
-      <div className="flex justify-between text-[10px] text-gray-600">
+      <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-600">
         <span>Bajo</span>
         <span>Alto</span>
       </div>
