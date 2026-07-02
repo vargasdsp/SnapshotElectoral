@@ -5,7 +5,12 @@ Implements the repartir() logic from the notebook using the pre-built
 tabla_pesos (centroid method). No individual voter geocoding needed.
 
 Outputs: data/processed/votos/{cargo}/{COMUNA}.parquet
-Each file contains: ID_MANZANA, candidato, partido, votos, pct_manzana
+Each file contains: ID_MANZANA, candidato, partido, pacto, votos, pct_manzana
+
+`pacto` viene del campo SUBPACTO de la fuente SERVEL: es el pacto/subpacto real
+bajo el que compitió cada candidato (distinto de la agrupación `partido`, que es
+solo la sigla del partido). Para diputados es 1:1 con el pacto nacional; para
+concejales puede variar de comuna en comuna.
 """
 from __future__ import annotations
 import sys, os
@@ -205,25 +210,31 @@ def repartir(resultados: pd.DataFrame, pesos: pd.DataFrame,
     Core redistribution function: assigns local-level votes to manzanas.
     Translated directly from notebook's repartir() with centroid weights.
     """
-    col_local   = schema["col_local"].upper()
-    col_cand    = schema.get("col_cand", "CANDIDATO").upper()
-    col_partido = schema["col_partido"].upper()
-    col_votos   = schema["col_votos"].upper()
+    col_local    = schema["col_local"].upper()
+    col_cand     = schema.get("col_cand", "CANDIDATO").upper()
+    col_partido  = schema["col_partido"].upper()
+    col_votos    = schema["col_votos"].upper()
+    col_subpacto = schema.get("col_subpacto", "SUBPACTO").upper()
 
     # Normalize local names in results
     resultados = resultados.copy()
     resultados["local_canon"] = resultados[col_local].apply(canonizar_local)
     resultados[col_votos] = to_numeric_cl(resultados[col_votos]).fillna(0)
+    resultados["pacto"] = (
+        resultados[col_subpacto].fillna("").astype(str).str.strip()
+        if col_subpacto in resultados.columns else ""
+    )
 
     # Aggregate by (canonical local, candidato, partido).
     # Multiple sub-sedes ("L1","L2") of the same local in source data collapse here,
-    # so we sum them into a single canonical local total.
+    # so we sum them into a single canonical local total. `pacto` es constante por
+    # candidato dentro de un local, así que tomamos el primer valor no vacío.
     agg = (
         resultados
         .groupby(["local_canon", col_cand, col_partido], as_index=False)
-        [col_votos].sum()
+        .agg(votos_local=(col_votos, "sum"), pacto=("pacto", "first"))
     )
-    agg.columns = ["local_canon", "candidato", "partido", "votos_local"]
+    agg.columns = ["local_canon", "candidato", "partido", "votos_local", "pacto"]
 
     # Normalize local name in pesos using the same canonical form
     pesos = pesos.copy()
@@ -259,12 +270,13 @@ def repartir(resultados: pd.DataFrame, pesos: pd.DataFrame,
 
     out = merged[[
         "ID_MANZANA", "local_norm", "local_lat", "local_lon",
-        "candidato", "partido", "votos_manzana", "votos_total_manzana",
+        "candidato", "partido", "pacto", "votos_manzana", "votos_total_manzana",
         "pct_manzana", "dist_local_m"
     ]].copy()
 
     out["candidato"] = out["candidato"].apply(normaliza_texto)
     out["partido"]   = out["partido"].apply(normaliza_texto)
+    out["pacto"]     = out["pacto"].apply(normaliza_texto)
     out["cargo"]     = cargo
     return out
 

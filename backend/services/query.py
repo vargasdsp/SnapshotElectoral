@@ -154,6 +154,20 @@ def _build_alcalde_sensibilidad_lookup() -> dict[tuple[str, str], str]:
     return out
 
 
+def _top_breakdown(df: pd.DataFrame, col: str, total_votos: float, n: int = 6) -> list[dict]:
+    """Ranking de votos agrupados por `col` (partido o pacto). Vacío si la
+    columna no existe todavía (parquets generados antes de agregar `pacto`)."""
+    if col not in df.columns:
+        return []
+    g = (
+        df.groupby(col)["votos_manzana"].sum()
+        .reset_index().sort_values("votos_manzana", ascending=False).head(n)
+    )
+    g = g[g[col].astype(str).str.strip() != ""]
+    g["pct"] = g["votos_manzana"] / max(total_votos, 1) * 100
+    return g.rename(columns={"votos_manzana": "votos"})[[col, "votos", "pct"]].to_dict("records")
+
+
 def get_available_comunas() -> list[str]:
     pesos_dir = DATA_DIR / "pesos"
     if not pesos_dir.exists():
@@ -274,7 +288,10 @@ def get_available_cargos(comuna: str) -> list[str]:
     return cargos
 
 
-def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str | None = None) -> dict | None:
+def get_snapshot_data(
+    comuna: str, cargo: str, sensibilidad: str,
+    partido: str | None = None, pacto: str | None = None,
+) -> dict | None:
     votos_path = DATA_DIR / "votos" / cargo / f"{comuna}.parquet"
     pesos_path = DATA_DIR / "pesos" / f"{comuna}.parquet"
     geo_path   = DATA_DIR / "geojson" / f"{comuna}.geojson"
@@ -297,7 +314,10 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
     partidos = SENSIBILIDAD_PARTIDOS.get(sensibilidad, [])
     partidos_upper = [p.upper() for p in partidos]
 
-    if partido:
+    if pacto and "pacto" in votos.columns:
+        # Filtro directo por pacto específico — ignora sensibilidad para el filtro
+        mask = votos["pacto"].str.upper() == pacto.strip().upper()
+    elif partido:
         # Filtro directo por partido específico — ignora sensibilidad para el filtro
         mask = votos["partido"].str.upper() == partido.strip().upper()
     else:
@@ -438,12 +458,8 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
     top_list = top.rename(columns={"votos_manzana": "votos"}).to_dict("records")
 
     _votos_total_sector = float(votos["votos_manzana"].sum())
-    _top_part = (
-        votos.groupby("partido")["votos_manzana"].sum()
-        .reset_index().sort_values("votos_manzana", ascending=False).head(6)
-    )
-    _top_part["pct"] = _top_part["votos_manzana"] / max(_votos_total_sector, 1) * 100
-    top_partidos_list = _top_part.rename(columns={"votos_manzana": "votos"})[["partido", "votos", "pct"]].to_dict("records")
+    top_partidos_list = _top_breakdown(votos, "partido", _votos_total_sector)
+    top_pactos_list   = _top_breakdown(votos, "pacto", _votos_total_sector)
 
     # Local-level results: "won" = local share above sector's commune-wide average
     local_totals = votos.groupby("local_norm")["votos_manzana"].sum()
@@ -484,6 +500,7 @@ def get_snapshot_data(comuna: str, cargo: str, sensibilidad: str, partido: str |
         "locales_total": locales_total,
         "top_candidatos": top_list,
         "top_partidos": top_partidos_list,
+        "top_pactos": top_pactos_list,
         "pres_historico_pct": pres_pct,
         "swing": swing,
         "techo_concejal_pct": techo_concejal_pct,
@@ -686,12 +703,8 @@ def get_autoridad_distrito_snapshot(
     ]
 
     _votos_total_sector_dist = float(votos["votos_manzana"].sum())
-    _top_part_dist = (
-        votos.groupby("partido")["votos_manzana"].sum()
-        .reset_index().sort_values("votos_manzana", ascending=False).head(6)
-    )
-    _top_part_dist["pct"] = _top_part_dist["votos_manzana"] / max(_votos_total_sector_dist, 1) * 100
-    top_partidos_dist_list = _top_part_dist.rename(columns={"votos_manzana": "votos"})[["partido", "votos", "pct"]].to_dict("records")
+    top_partidos_dist_list = _top_breakdown(votos, "partido", _votos_total_sector_dist)
+    top_pactos_dist_list   = _top_breakdown(votos, "pacto", _votos_total_sector_dist)
 
     stats = {
         "voto_promedio_pct": voto_ponderado_dist,
@@ -704,6 +717,7 @@ def get_autoridad_distrito_snapshot(
         "locales_total": locales_total,
         "top_candidatos": top_locales_list,
         "top_partidos": top_partidos_dist_list,
+        "top_pactos": top_pactos_dist_list,
         "pres_historico_pct": pct_sector,
         "swing": pct_propio - pct_sector,
         "partido": partido,
@@ -889,12 +903,8 @@ def get_autoridad_snapshot(comuna: str, cargo: str, candidato: str) -> dict | No
     ]
 
     _votos_total_sector_aut = float(votos["votos_manzana"].sum())
-    _top_part_aut = (
-        votos.groupby("partido")["votos_manzana"].sum()
-        .reset_index().sort_values("votos_manzana", ascending=False).head(6)
-    )
-    _top_part_aut["pct"] = _top_part_aut["votos_manzana"] / max(_votos_total_sector_aut, 1) * 100
-    top_partidos_aut_list = _top_part_aut.rename(columns={"votos_manzana": "votos"})[["partido", "votos", "pct"]].to_dict("records")
+    top_partidos_aut_list = _top_breakdown(votos, "partido", _votos_total_sector_aut)
+    top_pactos_aut_list   = _top_breakdown(votos, "pacto", _votos_total_sector_aut)
 
     stats = {
         "voto_promedio_pct": voto_ponderado_aut,
@@ -907,6 +917,7 @@ def get_autoridad_snapshot(comuna: str, cargo: str, candidato: str) -> dict | No
         "locales_total": locales_total,
         "top_candidatos": top_locales_list,
         "top_partidos": top_partidos_aut_list,
+        "top_pactos": top_pactos_aut_list,
         "pres_historico_pct": pct_propio,
         "swing": None,
         "rank": rank,
@@ -1191,12 +1202,8 @@ def get_distrito_snapshot(
     top_list = top.rename(columns={"votos_manzana": "votos"}).to_dict("records")
 
     _votos_total_sector_daut = float(votos["votos_manzana"].sum())
-    _top_part_daut = (
-        votos.groupby("partido")["votos_manzana"].sum()
-        .reset_index().sort_values("votos_manzana", ascending=False).head(6)
-    )
-    _top_part_daut["pct"] = _top_part_daut["votos_manzana"] / max(_votos_total_sector_daut, 1) * 100
-    top_partidos_daut_list = _top_part_daut.rename(columns={"votos_manzana": "votos"})[["partido", "votos", "pct"]].to_dict("records")
+    top_partidos_daut_list = _top_breakdown(votos, "partido", _votos_total_sector_daut)
+    top_pactos_daut_list   = _top_breakdown(votos, "pacto", _votos_total_sector_daut)
 
     local_totals = votos.groupby("local_norm")["votos_manzana"].sum()
     local_sens   = votos_sens.groupby("local_norm")["votos_manzana"].sum()
@@ -1216,6 +1223,7 @@ def get_distrito_snapshot(
         "locales_total": locales_total,
         "top_candidatos": top_list,
         "top_partidos": top_partidos_daut_list,
+        "top_pactos": top_pactos_daut_list,
         "pres_historico_pct": None,
         "swing": None,
     }

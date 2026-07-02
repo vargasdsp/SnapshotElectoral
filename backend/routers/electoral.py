@@ -22,6 +22,7 @@ def get_snapshot(
     cargo: str  = Query(..., description="concejal|core|alcalde|diputado"),
     sensibilidad: str = Query(..., description="izquierda|centroizquierda|..."),
     partido: Optional[str] = Query(None, description="Filtrar por partido específico (opcional)"),
+    pacto: Optional[str] = Query(None, description="Filtrar por pacto/subpacto específico (opcional)"),
 ):
     if cargo not in VALID_CARGOS:
         raise HTTPException(422, f"Invalid cargo. Must be one of: {VALID_CARGOS}")
@@ -33,7 +34,7 @@ def get_snapshot(
         raise HTTPException(404, f"No processed data for commune '{comuna}'. "
                                  f"Run the preprocessing pipeline first.")
 
-    result = get_snapshot_data(comuna, cargo, sensibilidad, partido=partido)
+    result = get_snapshot_data(comuna, cargo, sensibilidad, partido=partido, pacto=pacto)
     if result is None:
         raise HTTPException(404, f"No data for {cargo} in {comuna}. "
                                  f"Check if this cargo was processed.")
