@@ -13,6 +13,8 @@ interface Props {
   sensibilidad: Sensibilidad;
   activeLayer: "choropleth" | "heatmap" | "winner" | "debilidades" | "censo";
   onManzanaHover?: (mz: ManzanaFeature | null) => void;
+  onManzanaClick?: (mz: ManzanaFeature) => void;
+  selectedManzanaId?: string | null;
   censusVarData?: Record<string, number> | null;
   censusVarLabel?: string;
 }
@@ -32,6 +34,7 @@ function featureCentroid(feature: GeoJSON.Feature): [number, number] | null {
 
 export default function ElectoralMap({
   geojson, manzanas, sensibilidad, activeLayer, onManzanaHover,
+  onManzanaClick, selectedManzanaId,
   censusVarData, censusVarLabel,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,6 +42,9 @@ export default function ElectoralMap({
   const layerRef     = useRef<LeafletNS.GeoJSON | null>(null);
   const heatRef      = useRef<any>(null);
   const tileRef      = useRef<LeafletNS.TileLayer | null>(null);
+  const featureLayersRef = useRef<Map<string, LeafletNS.Layer>>(new Map());
+  const selectedIdRef     = useRef<string | null>(null);
+  const prevSelectedIdRef = useRef<string | null>(null);
   const [L, setL]    = useState<LType | null>(null);
   const { theme }    = useTheme();
 
@@ -75,17 +81,6 @@ export default function ElectoralMap({
     const p = (q: number) => vals[Math.min(vals.length - 1, Math.floor(q * vals.length))];
     return { min: p(0.05), max: p(0.95) };
   }, [censusVarData]);
-
-  // Real data range so the gradient stretches across what's actually in the map,
-  // not a fixed 0-50% bucket (which saturates when a candidate dominates).
-  const pctRange = useMemo(() => {
-    const values = manzanas.map(m => m.voto_pct).filter(v => v > 0);
-    if (values.length === 0) return { min: 0, max: 50 };
-    values.sort((a, b) => a - b);
-    // Use 5th / 95th percentiles to avoid outliers compressing the scale.
-    const p = (q: number) => values[Math.min(values.length - 1, Math.floor(q * values.length))];
-    return { min: p(0.05), max: p(0.95) };
-  }, [manzanas]);
 
   // 1. Load Leaflet (client-side only)
   useEffect(() => {
@@ -203,55 +198,63 @@ export default function ElectoralMap({
     const styleFn = (feature?: GeoJSON.Feature): LeafletNS.PathOptions => {
       const id = (feature?.properties as any)?.ID_MANZANA;
       const mz = id ? mzLookup.get(id) : null;
+      let style: LeafletNS.PathOptions;
       if (!mz) {
         // Manzanas without data (no voters assigned): subtle grey overlay so the
         // commune outline is visible without competing with the choropleth.
-        return {
+        style = {
           fillColor: "#2a2a36", fillOpacity: 0.35,
           color: "rgba(255,255,255,0.08)", weight: 0.3,
         };
-      }
-      if (activeLayer === "heatmap") {
-        return {
+      } else if (activeLayer === "heatmap") {
+        style = {
           fillColor: "transparent", fillOpacity: 0,
           color: "rgba(255,255,255,0.04)", weight: 0.3,
         };
-      }
-      if (activeLayer === "winner") {
-        return {
+      } else if (activeLayer === "winner") {
+        style = {
           fillColor: mz.is_fortaleza ? main : "#3a3a44",
           fillOpacity: mz.is_fortaleza ? 0.85 : 0.4,
           color: mz.is_fortaleza ? main : "rgba(255,255,255,0.08)",
           weight: mz.is_fortaleza ? 0.8 : 0.3,
         };
-      }
-      if (activeLayer === "debilidades") {
-        return {
+      } else if (activeLayer === "debilidades") {
+        style = {
           fillColor: !mz.is_fortaleza ? "#E74C3C" : "#3a3a44",
           fillOpacity: !mz.is_fortaleza ? 0.85 : 0.25,
           color: !mz.is_fortaleza ? "#E74C3C" : "rgba(255,255,255,0.05)",
           weight: !mz.is_fortaleza ? 0.8 : 0.3,
         };
-      }
-      if (activeLayer === "censo" && censusVarData) {
+      } else if (activeLayer === "censo" && censusVarData) {
         const val = censusVarData[id] ?? 0;
-        return {
+        style = {
           fillColor: censusColor(val, censusRange.min, censusRange.max),
           fillOpacity: 0.9,
           color: "rgba(255,255,255,0.08)",
           weight: 0.3,
         };
+      } else {
+        style = {
+          fillColor: choroplethColor(mz.voto_pct, sensibilidad),
+          fillOpacity: 1,
+          color: "rgba(255,255,255,0.10)",
+          weight: 0.3,
+        };
       }
-      return {
-        fillColor: choroplethColor(mz.voto_pct, sensibilidad, pctRange),
-        fillOpacity: 1,
-        color: "rgba(255,255,255,0.10)",
-        weight: 0.3,
-      };
+      // Persistent highlight for the clicked manzana, on top of the base style.
+      if (mz && id === selectedIdRef.current) {
+        style = { ...style, color: "#3B82F6", weight: 3 };
+      }
+      return style;
     };
 
+    featureLayersRef.current = new Map();
     const layer = L.geoJSON(geojson, {
       style: styleFn,
+      onEachFeature: (feature: GeoJSON.Feature, lyr: LeafletNS.Layer) => {
+        const id = (feature?.properties as any)?.ID_MANZANA;
+        if (id) featureLayersRef.current.set(id, lyr);
+      },
     } as any);
 
     layer.on("mouseover", (e: any) => {
@@ -277,10 +280,10 @@ export default function ElectoralMap({
         : "";
       e.layer.bindTooltip(
         `<div style="min-width:180px">
-          <div style="font-size:11px;color:#888;margin-bottom:4px">${mz.local_votacion || "Local desconocido"}</div>
-          <div style="font-size:20px;font-weight:700;color:#fff">${mz.voto_pct.toFixed(1)}%</div>
-          <div style="font-size:11px;color:#aaa;margin-top:2px">${votosLine}</div>
-          <div style="font-size:10px;color:#666;margin-top:1px">${contextLine}</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">${mz.local_votacion || "Local desconocido"}</div>
+          <div style="font-size:20px;font-weight:700;color:var(--text-primary)">${mz.voto_pct.toFixed(1)}%</div>
+          <div style="font-size:11px;color:var(--text-primary);opacity:0.75;margin-top:2px">${votosLine}</div>
+          <div style="font-size:10px;color:var(--text-muted);opacity:0.85;margin-top:1px">${contextLine}</div>
           <div style="margin-top:6px;font-size:10px;color:${mz.is_fortaleza ? "#4CAF50" : "#F44336"}">${mz.is_fortaleza ? "▲ Zona fuerte" : "▼ Zona débil"}</div>
         </div>`,
         { permanent: false, direction: "top", sticky: true },
@@ -291,6 +294,14 @@ export default function ElectoralMap({
       layer.resetStyle(e.layer);
       e.layer.closeTooltip?.();
       onManzanaHover?.(null);
+    });
+
+    layer.on("click", (e: any) => {
+      const f = e.layer?.feature;
+      const id = f?.properties?.ID_MANZANA;
+      const mz = id ? mzLookup.get(id) : null;
+      if (!mz) return;
+      onManzanaClick?.(mz);
     });
 
     layer.addTo(map);
@@ -305,7 +316,28 @@ export default function ElectoralMap({
         map.fitBounds(bounds, { padding: [20, 20], maxZoom: 15 });
       }
     });
-  }, [L, geojson, manzanas, sensibilidad, activeLayer, mzLookup, localTotals, onManzanaHover, pctRange, censusVarData, censusRange]);
+  }, [L, geojson, manzanas, sensibilidad, activeLayer, mzLookup, localTotals, onManzanaHover, onManzanaClick, censusVarData, censusRange]);
+
+  // 4. Live-highlight the selected manzana without rebuilding the whole layer
+  // (rebuilding would also re-run fitBounds, yanking the viewport on every click).
+  useEffect(() => {
+    selectedIdRef.current = selectedManzanaId ?? null;
+    const layer = layerRef.current;
+    if (!layer) return;
+    const prevId = prevSelectedIdRef.current;
+    if (prevId && prevId !== selectedManzanaId) {
+      const prevLyr = featureLayersRef.current.get(prevId);
+      if (prevLyr) layer.resetStyle(prevLyr as any);
+    }
+    if (selectedManzanaId) {
+      const lyr = featureLayersRef.current.get(selectedManzanaId) as any;
+      if (lyr) {
+        lyr.setStyle({ color: "#3B82F6", weight: 3 });
+        lyr.bringToFront?.();
+      }
+    }
+    prevSelectedIdRef.current = selectedManzanaId ?? null;
+  }, [selectedManzanaId]);
 
   return (
     <div ref={containerRef}

@@ -30,6 +30,7 @@ export interface SnapshotStats {
   locales_total: number;
   top_candidatos: Array<{ candidato: string; partido: string; votos: number; pct?: number; local?: string }>;
   top_partidos: Array<{ partido: string; votos: number; pct: number }>;
+  top_pactos?: Array<{ pacto: string; votos: number; pct: number }>;
   pres_historico_pct: number | null;
   swing: number | null;
   techo_concejal_pct?: number | null;

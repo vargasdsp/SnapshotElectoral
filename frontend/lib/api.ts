@@ -97,10 +97,12 @@ export async function fetchSnapshot(
   comuna: string,
   cargo: string,
   sensibilidad: string,
-  partido?: string
+  partido?: string,
+  pacto?: string,
 ): Promise<SnapshotResponse> {
   const params = new URLSearchParams({ comuna, cargo, sensibilidad });
   if (partido) params.set("partido", partido);
+  if (pacto) params.set("pacto", pacto);
   const res = await fetch(`${API_BASE}/api/electoral/snapshot?${params}`);
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: "Unknown error" }));

@@ -41,6 +41,7 @@ function SnapshotContent() {
   const candidato   = params.get("candidato") || "";
   const sensibilidadParam = params.get("sensibilidad") as Sensibilidad | null;
   const partidoParam     = params.get("partido") || undefined;
+  const pactoParam       = params.get("pacto") || undefined;
   const distritoIdParam = params.get("distrito_id");
   const distritoId  = distritoIdParam ? parseInt(distritoIdParam, 10) : null;
   const isDistrito  = distritoId !== null && !isNaN(distritoId);
@@ -56,8 +57,10 @@ function SnapshotContent() {
   const [error, setError]           = useState<string | null>(null);
   const [activeLayer, setActiveLayer] = useState<"choropleth" | "heatmap" | "winner" | "debilidades">("choropleth");
   const [hoveredMz, setHoveredMz]   = useState<ManzanaFeature | null>(null);
+  const [selectedMz, setSelectedMz] = useState<ManzanaFeature | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [sidebarTab, setSidebarTab]   = useState<"electoral" | "censo">("electoral");
+  const [competitivoTab, setCompetitivoTab] = useState<"partidos" | "pactos">("partidos");
   const [censusData, setCensusData]   = useState<CensusData | null>(null);
   const [censusLoading, setCensusLoading] = useState(false);
   const [activeCensusVar, setActiveCensusVar] = useState<{ variable: string; label: string; data: Record<string, number> } | null>(null);
@@ -69,6 +72,7 @@ function SnapshotContent() {
     if (isDistrito && distritoId === null) return;
     setLoading(true);
     setError(null);
+    setSelectedMz(null);
 
     // Flujo distrito: autoridad vs candidato usan endpoints distintos
     const snapshotPromise = isDistrito
@@ -77,7 +81,7 @@ function SnapshotContent() {
           : fetchDistritoSnapshot(distritoId!, sensibilidad, comuna || undefined))
       : (mode === "autoridad" && candidato
           ? fetchAutoridadSnapshot(comuna, cargo, candidato)
-          : fetchSnapshot(comuna, cargo, sensibilidad, partidoParam));
+          : fetchSnapshot(comuna, cargo, sensibilidad, partidoParam, pactoParam));
 
     const geoPromise = isDistrito
       ? fetchDistritoGeoJSON(distritoId!, comuna || undefined)
@@ -94,7 +98,7 @@ function SnapshotContent() {
       })
       .catch(err => setError(err.message || "Error cargando datos"))
       .finally(() => setLoading(false));
-  }, [comuna, cargo, sensibilidad, mode, candidato, isDistrito, distritoId, partidoParam]);
+  }, [comuna, cargo, sensibilidad, mode, candidato, isDistrito, distritoId, partidoParam, pactoParam]);
 
   // Load census when tab is selected (only for single-comuna views)
   useEffect(() => {
@@ -130,6 +134,10 @@ function SnapshotContent() {
 
   const handleManzanaHover = useCallback((mz: ManzanaFeature | null) => {
     setHoveredMz(mz);
+  }, []);
+
+  const handleManzanaClick = useCallback((mz: ManzanaFeature) => {
+    setSelectedMz(prev => (prev && prev.id_manzana === mz.id_manzana) ? null : mz);
   }, []);
 
   const { main: colorMain } = SENSIBILIDAD_COLORS[sensibilidad];
@@ -338,6 +346,8 @@ function SnapshotContent() {
               sensibilidad={sensibilidad}
               activeLayer={computedLayer}
               onManzanaHover={handleManzanaHover}
+              onManzanaClick={handleManzanaClick}
+              selectedManzanaId={selectedMz?.id_manzana ?? null}
               censusVarData={activeCensusVar?.data ?? null}
               censusVarLabel={activeCensusVar?.label}
             />
@@ -506,7 +516,55 @@ function SnapshotContent() {
               )
             ) : (
               <>
-                {/* Stats header */}
+                {/* Stats header — manzana seleccionada o agregado del sector */}
+                {selectedMz ? (
+                  <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full" style={{ background: "#3B82F6" }} />
+                        <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">
+                          📍 Manzana seleccionada
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => setSelectedMz(null)}
+                        className="text-[10px] text-gray-500 hover:text-white transition-colors px-2 py-0.5 rounded-md"
+                        style={{ background: "var(--overlay-soft)" }}
+                      >
+                        ✕ Vista general
+                      </button>
+                    </div>
+                    <div className="text-3xl font-bold text-white mt-2">
+                      {selectedMz.voto_pct.toFixed(1)}
+                      <span className="text-lg text-gray-500">%</span>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1 leading-relaxed">
+                      {selectedMz.local_votacion || "Local desconocido"}
+                      {selectedMz.total_votos > 0 && (
+                        <>
+                          {" · "}
+                          <span className="text-gray-300 font-medium">
+                            ~{Math.round(selectedMz.voto_abs).toLocaleString("es-CL")}
+                          </span>
+                          {" de "}
+                          <span className="text-gray-300 font-medium">
+                            {Math.round(selectedMz.total_votos).toLocaleString("es-CL")}
+                          </span>
+                          {" votos estimados en esta manzana"}
+                        </>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1.5 mt-3">
+                      <span className="text-xs font-semibold" style={{ color: selectedMz.is_fortaleza ? "#4CAF50" : "#F44336" }}>
+                        {selectedMz.is_fortaleza ? "▲ Zona fuerte" : "▼ Zona débil"}
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-gray-600 mt-3 leading-relaxed">
+                      Los detalles de partidos, candidatos y lectura territorial de abajo
+                      siguen siendo a nivel comunal — no hay desglose por partido a nivel de manzana.
+                    </p>
+                  </div>
+                ) : (
                 <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-2 h-2 rounded-full" style={{ background: colorMain }} />
@@ -579,45 +637,72 @@ function SnapshotContent() {
                     </div>
                   )}
                 </div>
-
-
-
-                {/* Partidos más competitivos del sector */}
-                {stats.top_partidos && stats.top_partidos.length > 0 && (
-                  <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider font-medium mb-1">
-                      Partidos más competitivos
-                    </p>
-                    <p className="text-[10px] text-gray-600 mb-3">Clic para ver su desempeño territorial</p>
-                    <div className="flex flex-col gap-2">
-                      {stats.top_partidos.slice(0, 5).map((pt, i) => (
-                        <button
-                          key={i}
-                          onClick={() => {
-                            const p = new URLSearchParams({ cargo, sensibilidad, partido: pt.partido, mode: "candidato" });
-                            if (isDistrito) p.set("distrito_id", String(distritoId));
-                            else p.set("comuna", comuna);
-                            router.push(`/snapshot?${p}`);
-                          }}
-                          className="flex items-center gap-2 text-xs w-full text-left px-2 py-1.5 -mx-2 rounded-md hover:bg-white hover:bg-opacity-5 transition-colors"
-                        >
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between mb-0.5">
-                              <span className="text-gray-300 truncate">{pt.partido || "—"}</span>
-                              <span className="text-gray-400 font-semibold ml-2 flex-shrink-0">{pt.pct.toFixed(1)}%</span>
-                            </div>
-                            <div className="h-1 rounded-full overflow-hidden" style={{ background: "var(--overlay-soft)" }}>
-                              <div className="h-full rounded-full" style={{
-                                width: `${Math.min(pt.pct * 2, 100)}%`,
-                                background: i === 0 ? colorMain : "rgba(255,255,255,0.25)"
-                              }} />
-                            </div>
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
                 )}
+
+                {/* Partidos / Pactos más competitivos del sector */}
+                {stats.top_partidos && stats.top_partidos.length > 0 && (() => {
+                  const hasPactos = !!stats.top_pactos && stats.top_pactos.length > 0;
+                  const activeTab = hasPactos ? competitivoTab : "partidos";
+                  const rows = activeTab === "pactos"
+                    ? (stats.top_pactos || []).map(pt => ({ label: pt.pacto, pct: pt.pct }))
+                    : stats.top_partidos.map(pt => ({ label: pt.partido, pct: pt.pct }));
+                  return (
+                    <div className="p-5 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                      <div className="flex items-center justify-between mb-1">
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-medium">
+                          {activeTab === "pactos" ? "Pactos más competitivos" : "Partidos más competitivos"}
+                        </p>
+                        {hasPactos && (
+                          <div className="flex gap-0.5 rounded-md p-0.5" style={{ background: "var(--overlay-soft)" }}>
+                            {(["partidos", "pactos"] as const).map(tab => (
+                              <button
+                                key={tab}
+                                onClick={() => setCompetitivoTab(tab)}
+                                className="px-2 py-0.5 rounded text-[10px] font-medium capitalize transition-colors"
+                                style={{
+                                  background: activeTab === tab ? colorMain : "transparent",
+                                  color: activeTab === tab ? "#fff" : "#888",
+                                }}
+                              >
+                                {tab}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-gray-600 mb-3">Clic para ver su desempeño territorial</p>
+                      <div className="flex flex-col gap-2">
+                        {rows.slice(0, 5).map((pt, i) => (
+                          <button
+                            key={i}
+                            onClick={() => {
+                              const p = new URLSearchParams({ cargo, sensibilidad, mode: "candidato" });
+                              if (activeTab === "pactos") p.set("pacto", pt.label);
+                              else p.set("partido", pt.label);
+                              if (isDistrito) p.set("distrito_id", String(distritoId));
+                              else p.set("comuna", comuna);
+                              router.push(`/snapshot?${p}`);
+                            }}
+                            className="flex items-center gap-2 text-xs w-full text-left px-2 py-1.5 -mx-2 rounded-md hover:bg-white hover:bg-opacity-5 transition-colors"
+                          >
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between mb-0.5">
+                                <span className="text-gray-300 truncate">{pt.label || "—"}</span>
+                                <span className="text-gray-400 font-semibold ml-2 flex-shrink-0">{pt.pct.toFixed(1)}%</span>
+                              </div>
+                              <div className="h-1 rounded-full overflow-hidden" style={{ background: "var(--overlay-soft)" }}>
+                                <div className="h-full rounded-full" style={{
+                                  width: `${Math.min(pt.pct * 2, 100)}%`,
+                                  background: i === 0 ? colorMain : "rgba(255,255,255,0.25)"
+                                }} />
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Subject summary: which candidatures are being visualized */}
                 {mode !== "autoridad" && stats.top_candidatos.length > 0 && (

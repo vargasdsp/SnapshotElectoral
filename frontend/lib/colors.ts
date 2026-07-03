@@ -3,7 +3,7 @@ import { Sensibilidad, SENSIBILIDAD_COLORS } from "@/types/electoral";
 export function choroplethColor(
   pct: number,
   sensibilidad: Sensibilidad,
-  range?: { min: number; max: number },
+  maxPct: number = 50,
 ): string {
   const { main } = SENSIBILIDAD_COLORS[sensibilidad];
 
@@ -11,14 +11,14 @@ export function choroplethColor(
   const g = parseInt(main.slice(3, 5), 16);
   const b = parseInt(main.slice(5, 7), 16);
 
-  // Relative scale: map the dataset's actual min..max to opacity 0.18..1.0.
-  // Falls back to absolute 0..50 if no range provided.
-  const lo = range?.min ?? 0;
-  const hi = range?.max ?? 50;
-  const span = Math.max(hi - lo, 1);
-  const normalised = Math.min(Math.max((pct - lo) / span, 0), 1);
-  const curved = Math.pow(normalised, 0.7);
-  const opacity = 0.18 + curved * 0.82;
+  // Absolute scale (matches MapLegend's fixed 0-50% stops): a zone's fill
+  // reflects its real vote share, not its rank within this particular map.
+  // That way a dominant force (60%+) and a marginal one (15%) never render
+  // with a similar-looking intensity just because each was rescaled to fill
+  // the same 0-1 range.
+  const t = Math.min(Math.max(pct / maxPct, 0), 1);
+  const curved = Math.pow(t, 0.75);
+  const opacity = 0.10 + curved * 0.85;
   return `rgba(${r},${g},${b},${opacity})`;
 }
 
